@@ -43,7 +43,7 @@ class RegisterScreen extends Component {
             return <ActivityIndicator size = "large" color = {PRIMARY_DARK}/>;
         else return(<KeyboardAvoidingView enabled={false}
                                           style={{flexDirection: 'row', justifyContent: 'space-around', width: '80%'}}>
-            <TouchableOpacity onPress={() => this.backButtonPress()} style={{width: '28%'}}>
+            <TouchableOpacity onPress={() => this.backButtonPress()} style={{width: '30%'}}>
                 <View style={pageStyles.backButton}>
                     <Text style={pageStyles.whiteText}>Voltar</Text>
                 </View>

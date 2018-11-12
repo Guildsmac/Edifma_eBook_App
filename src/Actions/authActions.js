@@ -42,7 +42,7 @@ const registerUserError = (error, dispatch) => {
     if(errors.username)
         dispatch({type:SET_USERNAME_ERROR, payload:{text:errors.username}});
 
-    alert(errors.main);
+    alert('Não foi possível criar um usuário');
 
     dispatch({
         type:REGISTER_USER_ERROR,

@@ -10,8 +10,9 @@ import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 export default StyleSheet.create({
     container:{
         width:'90%',
-        borderColor: PRIMARY_DARK,
-        elevation: 1.2,
+        borderColor: SECONDARY_DARK,
+        borderWidth:0.25,
+        borderRadius: 8,
         flexDirection: 'row'
 
     },
