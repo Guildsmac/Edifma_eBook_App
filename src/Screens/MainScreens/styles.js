@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native'
 export default StyleSheet.create({
     northArea:{
-        flex:2,
+        flex:11,
         alignItems:'center',
         justifyContent: 'space-around',
     },
     southArea:{
-        flex:1,
+        flex:9,
     },
 
 })

@@ -26,7 +26,6 @@ export default StyleSheet.create({
         borderRightWidth: 1,
         borderRightColor: SECONDARY_DARK,
         opacity: 0.3,
-        marginVertical: 5,
         marginRight:2,
     },
     buttonText:{

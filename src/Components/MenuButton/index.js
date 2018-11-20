@@ -8,11 +8,10 @@ class MenuButton extends Component{
             <TouchableOpacity style = {styles.container}>
                 <View style={styles.leftContainer}>
                     <Text style={styles.buttonText}>
-                        Acervo de Livros
+                        {this.props.text}
                     </Text>
                 </View>
                 <View style={styles.verticalLine}>
-
                 </View>
                 <View style={styles.rightContainer}>
                     <Image style={styles.imageIcon} source={require('../../Images/arrow-right.png')}/>
