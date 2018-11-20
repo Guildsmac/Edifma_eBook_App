@@ -19,7 +19,7 @@ export default StyleSheet.create({
     },
     images:{
         flexDirection:'row',
-        flex:4,
+        flex:3,
         justifyContent: 'space-around',
         marginTop:10,
         marginBottom:10,
@@ -29,7 +29,7 @@ export default StyleSheet.create({
     textError:{
         fontFamily: PRIMARY_FONT_BLACK,
         color: '#f00',
-        fontSize: 14,
+        fontSize: 20,
         textAlign: 'center'
     },
     errorArea:{

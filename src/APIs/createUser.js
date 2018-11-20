@@ -19,7 +19,7 @@ const createUser = (data) => {
             registerUserSucess(response, dispatch)
         }).catch(error => {
             registerUserError(error, dispatch)
-        });
+        }, 200);
 
     }
 };

@@ -3,6 +3,9 @@ import {View, Text, BackHandler} from 'react-native';
 import {cleanAll} from "../../Actions/authActions";
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
+import inheritStyle from '../styles';
+import styles from './styles';
+import MenuButton from '../../Components/MenuButton';
 
 class Dashboard extends Component{
 
@@ -22,8 +25,15 @@ class Dashboard extends Component{
 
     render() {
         return(
-            <View>
-                <Text>Dashboard!</Text>
+            <View style = {inheritStyle.container}>
+                <View style ={styles.northArea}>
+                    <MenuButton/>
+                    <MenuButton/>
+                    <MenuButton/>
+                </View>
+                <View style={styles.southArea}>
+
+                </View>
             </View>
          )
     }

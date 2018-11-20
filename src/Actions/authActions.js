@@ -35,15 +35,18 @@ const registerUserSucess = (response, dispatch) => {
 
 const registerUserError = (error, dispatch) => {
     let errors = error.response.data.message;
-    if(errors.cpf)
-        dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
-    if(errors.email)
-        dispatch({type:SET_EMAIL_ERROR, payload:{text:errors.email}});
-    if(errors.username)
-        dispatch({type:SET_USERNAME_ERROR, payload:{text:errors.username}});
+    if(errors){
+        if(errors.cpf)
+            dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
+        if(errors.email)
+            dispatch({type:SET_EMAIL_ERROR, payload:{text:errors.email}});
+        if(errors.username)
+            dispatch({type:SET_USERNAME_ERROR, payload:{text:errors.username}});
 
-    alert('Não foi possível criar um usuário');
-
+        alert('Não foi possível criar um usuário');
+    }else{
+        alert('Erro de conexão');
+    }
     dispatch({
         type:REGISTER_USER_ERROR,
     })
@@ -180,10 +183,11 @@ const checkUsernameSuccess = (response, dispatch) => {
 };
 
 const checkUsernameError = (error, dispatch) => {
+    const errorMessage = error.response.data.message ? error.response.data.message : "Erro de conexão";
     dispatch({
         type: USERNAME_CHECK_ERROR,
         payload: {
-            erroLogin: error.response
+            erroLogin: errorMessage
         }
     });
 };

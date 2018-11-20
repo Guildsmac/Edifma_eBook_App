@@ -61,8 +61,8 @@ class LoginFirstStep extends Component {
 
         return (
             <Animated.View style={animation}>
-                <View style={{justifyContent: 'space-between', flex: 6, paddingVertical: 80}}>
-                    <View>
+                <View style={{justifyContent: 'space-evenly', flex: 9, paddingVertical: 80}}>
+                    <View style={{marginBottom: 48}}>
                         <Text style={thisStyle.text}>Nome de usuário/email</Text>
                         <TextInput
                             placeholderStyle={thisStyle.inputField}
@@ -72,11 +72,11 @@ class LoginFirstStep extends Component {
                             onChangeText={(text) => this.props.changeUsername(text)}
                         />
                     </View>
-                    <View>
+                    <KeyboardAvoidingView enabled={false}>
                         {this.getStatus()}
-                    </View>
+                    </KeyboardAvoidingView>
                 </View>
-                <KeyboardAvoidingView enabled={false} style={{flex: 4}}>
+                <KeyboardAvoidingView enabled={false} style={{flex: 3}}>
                     <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
                     <View style={thisStyle.errorArea}/>
                     <TouchableOpacity style={{marginTop: 10, flex: 1}} onPress={() => this.buttonRegisterScreen()}>

@@ -39,13 +39,12 @@ class LoginScreen extends Component {
 
     render() {
         return (
-            <View style={inheritedStyle.container}>
-                <Header text='LOGIN'/>
-                <View style={thisStyle.images}>
+            <View style={[inheritedStyle.container]}>
+                <View style={[thisStyle.images, {marginTop: 12}]}>
                     <Image style={[thisStyle.uniqueImage, {marginRight:30}]} resizeMode='contain' source={require('../../../Images/IFMALogo.png')}/>
                     <Image style={thisStyle.uniqueImage} resizeMode='contain' source={require('../../../Images/EdIFMALogo.png')}/>
                 </View>
-                <View style={thisStyle.mainContent}>
+                <View style={[thisStyle.mainContent]}>
                     {this.firstStepButtonCheck()}
                 </View>
             </View>

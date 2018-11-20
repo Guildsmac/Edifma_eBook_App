@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {changePassword} from "../../Actions/authActions";
+import {changePassword, cleanAll} from "../../Actions/authActions";
 import {PRIMARY_DARK} from "../../Consts/Colors";
 
 class LoginSecondStep extends Component {
@@ -110,4 +110,4 @@ const mapStateToProps = (state) => ({
 
 });
 
-export default connect(mapStateToProps, {changePassword})(LoginSecondStep);
+export default connect(mapStateToProps, {changePassword, cleanAll})(LoginSecondStep);

@@ -34,7 +34,7 @@ class RegisterScreen extends Component {
     componentDidMount() {
         Animated.timing(this.state.visibility, {
             toValue: 1,
-            duration: 375
+            duration: 500
         }).start();
     }
 
@@ -76,8 +76,7 @@ class RegisterScreen extends Component {
 
         return (
             <View style={inheritedStyle.container}>
-                <Header text='CADASTRO'/>
-                <Animated.View style={[animation, pageStyles.mainContent, {flex: 14, justifyContent: 'space-evenly'}]}>
+                <Animated.View style={[animation, pageStyles.mainContent, {flex: 14, justifyContent: 'space-between', marginVertical: 36}]}>
                     <View>
                         <RegisterField text='Nome' focusAction={() => {
                         }} value={this.props.nome} changeTextAction={this.props.changeName}

@@ -8,13 +8,14 @@ import {ACTIVITY_INDICATOR_ON} from "../Actions/actionsTypes";
 
 const userAuth = (username, password) => {
     return dispatch => {
-        dispatch({type: ACTIVITY_INDICATOR_ON})
+        dispatch({type: ACTIVITY_INDICATOR_ON});
         axios.post(AUTH_USER_REQUEST, {
             username,
-            password: password
+            password
         }).then(response => {
             authUserSuccess(response, dispatch)
         }).catch(error => {
+            console.log(error.response);
             authUserError(error, dispatch)
         }, 200);
 

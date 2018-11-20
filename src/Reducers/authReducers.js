@@ -89,7 +89,7 @@ export default(state = INITIAL_STATE, action) => {
             return {...state, erroUsuario: ''};
         case USERNAME_CHECK_ERROR:
             return {...state,
-                erroLogin: action.payload.erroLogin.data.message,
+                erroLogin: action.payload.erroLogin,
                 isActivityIndicatorOn: false,
 
             };
@@ -107,7 +107,7 @@ export default(state = INITIAL_STATE, action) => {
                 isActivityIndicatorOn: true
             };
         case BACK_TO_FIRST_STEP:
-            return {...state, isOnSecondStep: false};
+            return INITIAL_STATE;
         default:
             return state;
     }
