@@ -35,7 +35,7 @@ const registerUserSucess = (response, dispatch) => {
 
 const registerUserError = (error, dispatch) => {
     let errors = error.response.data.message;
-    if(errors){
+    if(errors!=null){
         if(errors.cpf)
             dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
         if(errors.email)
