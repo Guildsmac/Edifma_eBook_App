@@ -3,9 +3,15 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
 
 class MenuButton extends Component{
+
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
         return(
-            <TouchableOpacity style = {styles.container}>
+            <TouchableOpacity style = {styles.container} onPress ={this.props.action}>
                 <View style={styles.leftContainer}>
                     <Text style={styles.buttonText}>
                         {this.props.text}

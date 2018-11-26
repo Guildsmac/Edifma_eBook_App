@@ -17,7 +17,7 @@ import {
     CLEAR_CPF_ERRO,
     REGISTER_USER_ERROR,
     REGISTER_USER_SUCCESS,
-    REGISTER_USER, SET_CPF_ERROR, SET_EMAIL_ERROR, SET_USERNAME_ERROR
+    REGISTER_USER, SET_CPF_ERROR, SET_EMAIL_ERROR, SET_USERNAME_ERROR, SWITCH_KEYBOARD
 } from "./actionsTypes";
 import usernameAuth from "../APIs/usernameAuth";
 import userAuth from '../APIs/userAuth';
@@ -31,6 +31,12 @@ const registerUserSucess = (response, dispatch) => {
         type:REGISTER_USER_SUCCESS,
 
     })
+};
+
+const switchKeyboard = () => {
+    return{
+        type: SWITCH_KEYBOARD
+    }
 };
 
 const registerUserError = (error, dispatch) => {
@@ -214,4 +220,5 @@ export {
     backToFirstStep,
     turnActivityIndicatorOff,
     turnActivityIndicatorOn,
+    switchKeyboard
 };

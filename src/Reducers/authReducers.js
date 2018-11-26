@@ -13,7 +13,8 @@ import {
     USERNAME_CHECK_SUCCESS,
     SET_USERNAME_ERROR,
     SET_EMAIL_ERROR,
-    SET_CPF_ERROR
+    SET_CPF_ERROR,
+    SWITCH_KEYBOARD
 
 } from "../Actions/actionsTypes";
 
@@ -32,12 +33,15 @@ const INITIAL_STATE = {
     isActivityIndicatorOn: false,
     erroUsuario: '',
     erroCpf: '',
-    erroEmail: ''
+    erroEmail: '',
+    isKeyboardOn: false
 
 };
 
 export default(state = INITIAL_STATE, action) => {
     switch(action.type){
+        case SWITCH_KEYBOARD:
+            return {...state, isKeyboardOn: !state.isKeyboardOn};
         case CHANGE_USERNAME:
             return {...state, username: action.payload.text};
         case CHANGE_PASSWORD:
@@ -107,7 +111,7 @@ export default(state = INITIAL_STATE, action) => {
                 isActivityIndicatorOn: true
             };
         case BACK_TO_FIRST_STEP:
-            return INITIAL_STATE;
+            return {INITIAL_STATE, wentToSecondStep: true};
         default:
             return state;
     }

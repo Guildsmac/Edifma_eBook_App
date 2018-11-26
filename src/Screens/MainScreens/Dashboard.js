@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, BackHandler} from 'react-native';
+import {View, Text, BackHandler, Animated} from 'react-native';
 import Hr from 'react-native-hr-plus';
 import {cleanAll} from "../../Actions/authActions";
 import {Actions} from 'react-native-router-flux';
@@ -15,25 +15,39 @@ class Dashboard extends Component{
 
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
-    }
+
+    };
 
     componentWillUnmount() {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
-    }
+    };
 
     handleBackPress = () => {
         this.props.cleanAll();
         Actions.loginScreen();
+
         return true;
     };
+
+    _onBtnAcervoClick(){
+        Actions.acervo();
+    }
+
+    _onBtnAboutClick(){
+        Actions.about();
+    }
+
+    _onLinksImportantesClick(){
+        Actions.links();
+    }
 
     render() {
         return(
             <View style = {inheritStyle.container}>
                 <View style ={styles.northArea}>
-                    <MenuButton text="Acervo de Livros"/>
-                    <MenuButton text="Sobre a Editora"/>
-                    <MenuButton text="Links importantes"/>
+                    <MenuButton text="Acervo de Livros" action={() => this._onBtnAcervoClick()}/>
+                    <MenuButton text="Sobre a Editora" action={() => this._onBtnAboutClick()}/>
+                    <MenuButton text="Links importantes" action={() => this._onLinksImportantesClick()}/>
                 </View>
                 <View style={styles.southArea}>
                     <Hr color={PRIMARY_NORMAL} width={2} style={{marginHorizontal: 5, opacity: 0.6}}>

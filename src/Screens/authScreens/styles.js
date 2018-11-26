@@ -10,7 +10,7 @@ import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 
 export default StyleSheet.create({
     mainContent: {
-        flex: 10,
+        flex: 7,
         alignItems: 'center',
         justifyContent: 'space-around',
         width:'80%',
@@ -21,24 +21,24 @@ export default StyleSheet.create({
         flexDirection:'row',
         flex:3,
         justifyContent: 'space-around',
-        marginTop:10,
-        marginBottom:10,
+        alignItems:'center'
 
 
     },
     textError:{
         fontFamily: PRIMARY_FONT_BLACK,
         color: '#f00',
-        fontSize: 20,
+        fontSize: 18,
         textAlign: 'center'
     },
     errorArea:{
+
         borderBottomWidth: 1,
         borderBottomColor: SECONDARY_DARK,
     },
     uniqueImage:{
-        width:'100%',
-        height:'100%'
+        width:'80%',
+        height:'80%'
     },
     text:{
         fontFamily: PRIMARY_FONT,
@@ -82,6 +82,6 @@ export default StyleSheet.create({
         textAlign:'center',
         textShadowColor: SECONDARY_DARK,
         textShadowOffset:{width: 0.2, height: 0.1},
-        textShadowRadius:4.5
+        textShadowRadius:4.5,
     },
 })

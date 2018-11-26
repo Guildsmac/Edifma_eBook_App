@@ -40,6 +40,27 @@ class LoginFirstStep extends Component {
 
     };
 
+    getScreenState = () => {
+        console.log(this.props.isKeyboardOn);
+        if(!this.props.isKeyboardOn){
+            return (<View style={{flex: 4}}>
+                <View style={{flex:1}}>
+                    <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
+                </View>
+                <View style={thisStyle.errorArea}/>
+                <TouchableOpacity style={{flex: 1}} onPress={() => this.buttonRegisterScreen()}>
+                    <Text style={thisStyle.link}>Ainda não é cadastrado? Cadastre-se agora!</Text>
+                </TouchableOpacity>
+            </View>);
+        }else{
+            return (<KeyboardAvoidingView enabled={false} style={{flex: 4}} behavior={'height'}>
+                <TouchableOpacity style={{flex: 1}} onPress={() => this.buttonRegisterScreen()}>
+                    <Text style={thisStyle.link}>Ainda não é cadastrado? Cadastre-se agora!</Text>
+                </TouchableOpacity>
+            </KeyboardAvoidingView>);
+        }
+    };
+
     render() {
         let animation = {};
         if(this.props.isAnimated)
@@ -76,13 +97,7 @@ class LoginFirstStep extends Component {
                         {this.getStatus()}
                     </KeyboardAvoidingView>
                 </View>
-                <KeyboardAvoidingView enabled={false} style={{flex: 3}}>
-                    <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
-                    <View style={thisStyle.errorArea}/>
-                    <TouchableOpacity style={{marginTop: 10, flex: 1}} onPress={() => this.buttonRegisterScreen()}>
-                        <Text style={thisStyle.link}>Ainda não é cadastrado? Cadastre-se agora!</Text>
-                    </TouchableOpacity>
-                </KeyboardAvoidingView>
+                {this.getScreenState()}
 
             </Animated.View>
         )
@@ -92,7 +107,8 @@ class LoginFirstStep extends Component {
 const mapStateToProps = state => ({
     username: state.authReducers.username,
     erroLogin: state.authReducers.erroLogin,
-    isActivityIndicatorOn: state.authReducers.isActivityIndicatorOn
+    isActivityIndicatorOn: state.authReducers.isActivityIndicatorOn,
+    isKeyboardOn: state.authReducers.isKeyboardOn
 
 });
 

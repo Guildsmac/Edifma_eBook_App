@@ -11,14 +11,15 @@ import {
     backToFirstStep,
     turnActivityIndicatorOn,
     turnActivityIndicatorOff,
-    loginAuth
+    loginAuth,
+    switchKeyboard,
+    cleanAll
 } from "../../../Actions/authActions";
 
 class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.firstStepButtonCheck = this.firstStepButtonCheck.bind(this);
-
 
     };
 
@@ -57,13 +58,15 @@ const mapStateToProps = state => ({
     isOnSecondStep: state.authReducers.isOnSecondStep,
     wentToSecondStep: state.authReducers.wentToSecondStep,
     erroLogin: state.authReducers.erroLogin,
-    senha: state.authReducers.senha
+    senha: state.authReducers.senha,
+    isKeyboardOn: state.authReducers.isKeyboardOn
 });
 
 export default connect(mapStateToProps, {checkUsername,
                                          backToFirstStep,
                                          turnActivityIndicatorOn,
                                          turnActivityIndicatorOff,
-                                         loginAuth
-})
-                                         (LoginScreen);
+                                         loginAuth,
+                                         switchKeyboard,
+                                         cleanAll
+})(LoginScreen);
