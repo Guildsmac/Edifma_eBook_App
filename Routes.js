@@ -16,9 +16,12 @@ export default class Routes extends Component{
                     <Scene key = 'loginScreen' component = {LoginScreen} initial title="Login"/>
                     <Scene key = 'registerScreen' component = {RegisterScreen} title="Register"/>
                     <Scene key = 'dashboard' component = {Dashboard}  title="Dashboard"/>
+<<<<<<< HEAD
                     <Scene key = 'acervo' component = {Acervo} title = "Acervo"/>
                     <Scene key = 'about' component = {About} title = "Sobre"/>
                     <Scene key = 'links' component = {Links} title = "Links"/>
+=======
+>>>>>>> 282ea5a34765ba572e4d74c15fab624827a7cbec
                 </Stack>
             </Router>
         )
