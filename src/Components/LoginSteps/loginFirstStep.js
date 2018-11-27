@@ -29,7 +29,7 @@ class LoginFirstStep extends Component {
             return <ActivityIndicator size = "large" color = {PRIMARY_DARK}/>;
         else
             return (<View style={{flexDirection:'row', alignItems:'center',justifyContent: 'space-evenly'}}>
-                <TouchableOpacity onPress={() => this.buttonRegisterScreen()} style={[thisStyle.secondaryButton, {flex:1, marginRight:10}]}>
+                <TouchableOpacity onPress={() => this.buttonRegisterScreen()} style={[thisStyle.secondaryButton, {flex:1.25, marginRight:10}]}>
                     <Text style={thisStyle.whiteText}>Cadastrar-se</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.props.action} style={[thisStyle.button,{ flex:2}]}>
