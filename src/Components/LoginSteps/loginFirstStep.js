@@ -3,7 +3,7 @@ import {Text, TextInput, TouchableOpacity, View, Animated, KeyboardAvoidingView,
 import React, {Component} from "react";
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
-import {changePassword, changeUsername} from "../../Actions/authActions";
+import {changePassword, changeUsername, cleanAll} from "../../Actions/authActions";
 import {PRIMARY_DARK} from "../../Consts/Colors";
 
 class LoginFirstStep extends Component {
@@ -28,37 +28,19 @@ class LoginFirstStep extends Component {
         if(this.props.isActivityIndicatorOn)
             return <ActivityIndicator size = "large" color = {PRIMARY_DARK}/>;
         else
-            return (<TouchableOpacity onPress={this.props.action}>
-                <View style={thisStyle.button}>
+            return (<View style={{flexDirection:'row', alignItems:'center',justifyContent: 'space-evenly'}}>
+                <TouchableOpacity onPress={() => this.buttonRegisterScreen()} style={[thisStyle.secondaryButton, {flex:1, marginRight:10}]}>
+                    <Text style={thisStyle.whiteText}>Cadastrar-se</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.props.action} style={[thisStyle.button,{ flex:2}]}>
                     <Text style={thisStyle.whiteText}>Prosseguir</Text>
-                </View>
-            </TouchableOpacity>);
+                </TouchableOpacity>
+            </View>);
     }
 
     buttonRegisterScreen = () => {
         Actions.registerScreen();
 
-    };
-
-    getScreenState = () => {
-        console.log(this.props.isKeyboardOn);
-        if(!this.props.isKeyboardOn){
-            return (<View style={{flex: 4}}>
-                <View style={{flex:1}}>
-                    <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
-                </View>
-                <View style={thisStyle.errorArea}/>
-                <TouchableOpacity style={{flex: 1}} onPress={() => this.buttonRegisterScreen()}>
-                    <Text style={thisStyle.link}>Ainda não é cadastrado? Cadastre-se agora!</Text>
-                </TouchableOpacity>
-            </View>);
-        }else{
-            return (<KeyboardAvoidingView enabled={false} style={{flex: 4}} behavior={'height'}>
-                <TouchableOpacity style={{flex: 1}} onPress={() => this.buttonRegisterScreen()}>
-                    <Text style={thisStyle.link}>Ainda não é cadastrado? Cadastre-se agora!</Text>
-                </TouchableOpacity>
-            </KeyboardAvoidingView>);
-        }
     };
 
     render() {
@@ -81,23 +63,27 @@ class LoginFirstStep extends Component {
 
 
         return (
-            <Animated.View style={animation}>
-                <View style={{justifyContent: 'space-evenly', flex: 9, paddingVertical: 80}}>
-                    <View style={{marginBottom: 48}}>
-                        <Text style={thisStyle.text}>Nome de usuário/email</Text>
+            <Animated.View style={[animation, {width:'100%', flex:1}]}>
+                <View style={{ flex: 1 }}>
+                    <View style={{flex:2, justifyContent:'center'}}>
+                        <Text style={[thisStyle.text, {marginLeft:2 }]}>Nome de usuário/email</Text>
                         <TextInput
-                            placeholderStyle={thisStyle.inputField}
                             placeholder="Insira aqui"
-                            style={thisStyle.inputField}
+                            style={[thisStyle.inputField,]}
                             value={this.props.username}
                             onChangeText={(text) => this.props.changeUsername(text)}
                         />
                     </View>
-                    <KeyboardAvoidingView enabled={false}>
-                        {this.getStatus()}
+                    <KeyboardAvoidingView enabled={false} style={{flex:1}}>
+                        <View style={{flex:1,justifyContent:'center'}}>
+                            <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
+                        </View>
+                        <View style={{flex:3}}>
+                            {this.getStatus()}
+                        </View>
                     </KeyboardAvoidingView>
                 </View>
-                {this.getScreenState()}
+
 
             </Animated.View>
         )
@@ -112,4 +98,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, {changeUsername})(LoginFirstStep);
+export default connect(mapStateToProps, {changeUsername, cleanAll})(LoginFirstStep);

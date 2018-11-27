@@ -11,14 +11,15 @@ export default StyleSheet.create({
     container:{
         width:'90%',
         borderColor: SECONDARY_DARK,
-        borderWidth:0.25,
-        borderRadius: 8,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderTopWidth:0.25,
+        borderBottomWidth:0.25
 
     },
     textInput:{
         fontFamily: PRIMARY_FONT,
-        color: PRIMARY_NORMAL_FONT_COLOR
+        color: PRIMARY_NORMAL_FONT_COLOR,
+        marginLeft:12
     },
     leftContainer:{
         width: '24%',
@@ -29,7 +30,7 @@ export default StyleSheet.create({
     leftLabel:{
         fontFamily: PRIMARY_FONT,
         fontSize: 16,
-        textAlign: 'left',
+        textAlign: 'center',
         color: PRIMARY_NORMAL_FONT_COLOR
 
     },

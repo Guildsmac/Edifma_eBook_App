@@ -14,7 +14,8 @@ class RegisterField extends Component{
                     <TextInput
                         placeholder={this.props.placeholder}
                         onFocus = {() => {this.props.focusAction()}}
-                        placeholderStyle={styles.textInput}
+                        placeholderStyle={[styles.textInput]}
+                        style={styles.textInput}
                         secureTextEntry={this.props.password}
                         value={this.props.value}
                         onChangeText={(text) => this.props.changeTextAction(text)}

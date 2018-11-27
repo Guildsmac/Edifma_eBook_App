@@ -41,6 +41,7 @@ const switchKeyboard = () => {
 
 const registerUserError = (error, dispatch) => {
     let errors = error.response.data.message;
+    console.log(errors);
     if(errors){
         if(errors.cpf)
             dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
@@ -49,7 +50,7 @@ const registerUserError = (error, dispatch) => {
         if(errors.username)
             dispatch({type:SET_USERNAME_ERROR, payload:{text:errors.username}});
 
-        alert('Não foi possível criar um usuário');
+        alert(errors.main);
     }else{
         alert('Erro de conexão');
     }

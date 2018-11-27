@@ -45,7 +45,7 @@ class LoginScreen extends Component {
                     <Image style={[thisStyle.uniqueImage, {marginRight:30}]} resizeMode='contain' source={require('../../../Images/IFMALogo.png')}/>
                     <Image style={thisStyle.uniqueImage} resizeMode='contain' source={require('../../../Images/EdIFMALogo.png')}/>
                 </View>
-                <View style={[thisStyle.mainContent]}>
+                <View style={[thisStyle.mainContent, {}]}>
                     {this.firstStepButtonCheck()}
                 </View>
             </View>

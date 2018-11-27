@@ -44,13 +44,13 @@ class LoginSecondStep extends Component {
         else
             return (<View>
                         <TouchableOpacity onPress={this.props.action}>
-                            <View style={thisStyle.button}>
+                            <View style={[thisStyle.button]}>
                                 <Text style={thisStyle.whiteText}>Prosseguir</Text>
                             </View>
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={this.props.actionBack}>
-                            <View style={thisStyle.backButton}>
+                            <View style={[thisStyle.backButton, {marginTop:12}]}>
                                 <Text style={thisStyle.whiteText}>Voltar</Text>
                             </View>
                         </TouchableOpacity>

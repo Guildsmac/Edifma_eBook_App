@@ -4,17 +4,19 @@ import {
     SECONDARY_COLOR,
     SECONDARY_DARK,
     SECONDARY_FONT_COLOR,
-    SECONDARY_LIGHT
+    SECONDARY_LIGHT, SECONDARY_NORMAL
 } from '../../Consts/Colors';
 import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 
 export default StyleSheet.create({
     mainContent: {
         flex: 7,
+        width:'90%',
         alignItems: 'center',
         justifyContent: 'space-around',
-        width:'80%',
+        marginHorizontal:24,
         alignSelf:'center',
+        marginBottom:12
 
     },
     images:{
@@ -26,7 +28,7 @@ export default StyleSheet.create({
 
     },
     textError:{
-        fontFamily: PRIMARY_FONT_BLACK,
+        fontFamily: PRIMARY_FONT,
         color: '#f00',
         fontSize: 18,
         textAlign: 'center'
@@ -56,24 +58,25 @@ export default StyleSheet.create({
         textAlign:'center'
     },
     inputField:{
-        width:'100%',
         marginRight:16,
         borderColor: SECONDARY_DARK,
         borderBottomWidth: 0.4,
         fontFamily: PRIMARY_FONT,
-        marginTop:12
     },
     button:{
         backgroundColor: SECONDARY_DARK,
-        borderRadius: 12,
+        borderRadius: 4,
         padding:12,
-        marginTop:12
+    },
+    secondaryButton:{
+        backgroundColor: SECONDARY_NORMAL,
+        borderRadius: 4,
+        padding:12,
     },
     backButton:{
         backgroundColor: SECONDARY_LIGHT,
-        borderRadius: 12,
+        borderRadius: 4,
         padding:12,
-        marginTop:12
     },
     link:{
         color: SECONDARY_FONT_COLOR,
