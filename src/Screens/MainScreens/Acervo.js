@@ -15,7 +15,6 @@ class Acervo extends Component{
     };
 
     handleBackPress = () => {
-
         Actions.pop();
         return true;
     };

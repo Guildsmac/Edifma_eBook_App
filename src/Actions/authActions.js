@@ -41,12 +41,8 @@ const switchKeyboard = () => {
 
 const registerUserError = (error, dispatch) => {
     let errors = error.response.data.message;
-<<<<<<< HEAD
     console.log(errors);
     if(errors){
-=======
-    if(errors!=null){
->>>>>>> 282ea5a34765ba572e4d74c15fab624827a7cbec
         if(errors.cpf)
             dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
         if(errors.email)
