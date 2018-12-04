@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {View} from 'react-native'
 class BookSelectionList extends Component{
 
+    //PEGAR OS DADOS E ORDENÁ-LOS PELO HEADER E NOMES
+
     constructor(props){
         super(props);
     }

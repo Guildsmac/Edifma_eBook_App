@@ -3,6 +3,9 @@ import {BackHandler, ScrollView} from 'react-native'
 import ListItem from '../../Components/ListItem'
 import ItemHeader from '../../Components/ItemHeader'
 import {Actions} from "react-native-router-flux";
+import {fetchEbooks} from '../../Actions/mainActions';
+import {connect} from 'react-redux';
+
 class Acervo extends Component{
 
     componentDidMount() {
@@ -14,12 +17,17 @@ class Acervo extends Component{
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
     };
 
+    componentWillMount(){
+        this.props.fetchEbooks();
+    }
+
     handleBackPress = () => {
         Actions.pop();
         return true;
     };
 
     render() {
+        console.log(this.props.data);
         return(
             <ScrollView>
                 <ItemHeader initial='P'/>
@@ -59,4 +67,10 @@ class Acervo extends Component{
     }
 }
 
-export default Acervo
+const mapStateToProps = (state) => {
+    return{
+        data: state.mainReducers.data
+    }
+}
+
+export default connect(mapStateToProps, {fetchEbooks})(Acervo)
