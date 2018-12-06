@@ -3,12 +3,21 @@ import {View, TouchableOpacity, Image, Text} from 'react-native'
 import styles from './styles';
 class ListItem extends Component{
     render() {
+        let _imageUrl = this.props.image.uri;
+
+        if(_imageUrl.length === 0)
+            _imageUrl = require('../../Images/question-mark.png');
+        else{
+            _imageUrl = 'http://' + _imageUrl;
+            _imageUrl = {uri: _imageUrl};
+        }
+
         return(
             <View style={styles.container}>
-                <View style={{flex:1}}>
+                <TouchableOpacity style={{flex:1}}>
                     <View style={styles.topLeftArea}>
                         <View style={styles.mainImage}>
-                            <Image style={styles.imageIcon} source={this.props.image}/>
+                            <Image style={styles.imageIcon} source={_imageUrl}/>
                         </View>
                         <View style={styles.mainText}>
                             <Text style={[styles.text, styles.titleText]} numberOfLines={1}>
@@ -24,7 +33,7 @@ class ListItem extends Component{
                             {this.props.description}
                         </Text>
                     </View>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.rightArea}>
                     <TouchableOpacity>
                         <Image style={styles.imageIcon} source={require('../../Images/download-book.png')}/>

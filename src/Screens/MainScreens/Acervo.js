@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
-import {BackHandler, ScrollView} from 'react-native'
+import {BackHandler, ScrollView, ActivityIndicator, View, Text} from 'react-native'
 import ListItem from '../../Components/ListItem'
 import ItemHeader from '../../Components/ItemHeader'
 import {Actions} from "react-native-router-flux";
 import {fetchEbooks} from '../../Actions/mainActions';
 import {connect} from 'react-redux';
+import {PRIMARY_DARK} from "../../Consts/Colors";
+import BookSelectionList from "../../Components/BookSectionList";
 
 class Acervo extends Component{
 
@@ -26,43 +28,21 @@ class Acervo extends Component{
         return true;
     };
 
+    getScreenState = () => {
+        if(this.props.data.length === 0 || !this.props.data){
+            return(
+                <View style={{alignItems: 'center', justifyContent: 'center', flex:1}}>
+                    <ActivityIndicator size='large' color={PRIMARY_DARK}/>
+                </View>
+            )
+        }
+        else
+            return(<BookSelectionList data = {this.props.data}/>);
+    };
+
     render() {
-        console.log(this.props.data);
         return(
-            <ScrollView>
-                <ItemHeader initial='P'/>
-                <ListItem
-                    title="O Príncipe"
-                    author="Nicolau Maquiavel"
-                    description="Lorem ipsum dolor sit amet asdjghasgopksjdaf;akgljsdfoiwqjtpgoisjfasf asdfluiashfoasdfjqwep9r dfpwqeufhsa dfweouaisdflahgasfashfqwoijflmnas dfquwfas fqwofuinfliuafhoqwf nwoefuhesfd "
-                    image={require("../../Images/standard-book.png")}
-                />
-                <ListItem
-                    title="O Príncipe"
-                    author="Nicolau Maquiavel"
-                    description="Lorem ipsum dolor sit amet asdjghasgopksjdaf;akgljsdfoiwqjtpgoisjfasf asdfluiashfoasdfjqwep9r dfpwqeufhsa dfweouaisdflahgasfashfqwoijflmnas dfquwfas fqwofuinfliuafhoqwf nwoefuhesfd "
-                    image={require("../../Images/standard-book.png")}
-                />
-                <ListItem
-                    title="O Príncipe"
-                    author="Nicolau Maquiavel"
-                    description="Lorem ipsum dolor sit amet asdjghasgopksjdaf;akgljsdfoiwqjtpgoisjfasf asdfluiashfoasdfjqwep9r dfpwqeufhsa dfweouaisdflahgasfashfqwoijflmnas dfquwfas fqwofuinfliuafhoqwf nwoefuhesfd "
-                    image={require("../../Images/standard-book.png")}
-                />
-                <ItemHeader initial='Q'/>
-                <ListItem
-                    title="O Príncipe"
-                    author="Nicolau Maquiavel"
-                    description="Lorem ipsum dolor sit amet asdjghasgopksjdaf;akgljsdfoiwqjtpgoisjfasf asdfluiashfoasdfjqwep9r dfpwqeufhsa dfweouaisdflahgasfashfqwoijflmnas dfquwfas fqwofuinfliuafhoqwf nwoefuhesfd "
-                    image={require("../../Images/standard-book.png")}
-                />
-                <ListItem
-                    title="O Príncipe"
-                    author="Nicolau Maquiavel"
-                    description="Lorem ipsum dolor sit amet asdjghasgopksjdaf;akgljsdfoiwqjtpgoisjfasf asdfluiashfoasdfjqwep9r dfpwqeufhsa dfweouaisdflahgasfashfqwoijflmnas dfquwfas fqwofuinfliuafhoqwf nwoefuhesfd "
-                    image={require("../../Images/standard-book.png")}
-                />
-            </ScrollView>
+            this.getScreenState()
          )
     }
 }
