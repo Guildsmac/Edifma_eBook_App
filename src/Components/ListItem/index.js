@@ -1,7 +1,16 @@
 import React, {Component} from 'react'
 import {View, TouchableOpacity, Image, Text} from 'react-native'
 import styles from './styles';
+import {connect} from 'react-redux';
+import {fetchProtectedEbook} from '../../Actions/mainActions';
+
 class ListItem extends Component{
+
+    _downloadClick = () => {
+        this.props.fetchProtectedEbook(this.props.idusuario, this.props.id);
+
+    };
+
     render() {
         let _imageUrl = this.props.image.uri;
 
@@ -35,7 +44,7 @@ class ListItem extends Component{
                     </View>
                 </TouchableOpacity>
                 <View style={styles.rightArea}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this._downloadClick}>
                         <Image style={styles.imageIcon} source={require('../../Images/download-book.png')}/>
                     </TouchableOpacity>
                     <TouchableOpacity>
@@ -47,4 +56,8 @@ class ListItem extends Component{
     }
 }
 
-export default ListItem
+const mapStateToProps = (state) => ({
+    idusuario: state.authReducers.idusuario,
+});
+
+export default connect(mapStateToProps, {fetchProtectedEbook})(ListItem)

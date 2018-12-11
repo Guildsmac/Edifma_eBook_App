@@ -1,7 +1,7 @@
 import {MANAGE_EBOOKS_REQUEST} from '../Consts/APIsRequests';
 import axios from 'axios';
 import {
-    fetchEbooksSucess,
+    fetchEbooksSuccess,
     fetchEbooksError,
 } from "../Actions/mainActions";
 import {ACTIVITY_INDICATOR_ON} from "../Actions/actionsTypes";
@@ -11,7 +11,7 @@ const getEbooks = () => {
         dispatch({type: ACTIVITY_INDICATOR_ON});
         axios.get(MANAGE_EBOOKS_REQUEST, {
         }).then(response => {
-            fetchEbooksSucess(response, dispatch);
+            fetchEbooksSuccess(response, dispatch);
         }).catch(error => {
             fetchEbooksError(error, dispatch);
         }, 200);

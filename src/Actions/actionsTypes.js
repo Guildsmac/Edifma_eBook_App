@@ -20,19 +20,23 @@ const CLEAR_CPF_ERRO = 'clear_cpf_erro';
 const SET_EMAIL_ERROR = 'set_email_error';
 const SET_CPF_ERROR = 'set_cpf_error';
 const SET_USERNAME_ERROR = 'set_username_error';
-const ACERVO_CLICK = 'acervo_click';
-const SOBRE_EDITORA_CLICK = 'sobre_editora_click';
-const LINKS_IMPORTANTES = 'links_importantes_click';
-const FETCH_EBOOKS = 'fetch_ebooks';
 const FETCH_EBOOKS_SUCCESS = 'fetch_ebooks_success';
 const FETCH_EBOOKS_ERROR = 'fetch_ebooks_error';
+const FETCH_PROTECTED_EBOOK_SUCCESS = 'fetch_protected_ebook_success';
+const FETCH_PROTECTED_EBOOK_ERROR = 'fetch_protected_ebook_error';
 const SWITCH_KEYBOARD = 'switch_keyboard';
-
+const SCROLL_TO = 'scroll_to';
+const CHANGE_SCROLL_POSITION = 'change_scroll_position';
+const ASSIGN_SCROLLER = 'assign_scroller';
 
 export {
+    ASSIGN_SCROLLER,
+    CHANGE_SCROLL_POSITION,
+    SCROLL_TO,
     SWITCH_KEYBOARD,
+    FETCH_PROTECTED_EBOOK_ERROR,
+    FETCH_PROTECTED_EBOOK_SUCCESS,
     SET_CPF_ERROR,
-    FETCH_EBOOKS,
     FETCH_EBOOKS_ERROR,
     FETCH_EBOOKS_SUCCESS,
     SET_EMAIL_ERROR,
