@@ -6,11 +6,19 @@ const fetchEbooks = () => {
     return getEbooks();
 };
 
+const downloadEbook = (idusuario, idebook) => {
+    return dispatch => {
+        let s = fetchProtectedEbook(idusuario, idebook);
+        console.log(s);
+    }
+};
+
 const fetchProtectedEbook = (idusuario, idebook) => {
     return getProtectedEbook(idusuario, idebook);
 };
 
 const fetchProtectedEbookSuccess = (response, dispatch) => {
+
     dispatch({type: FETCH_PROTECTED_EBOOK_SUCCESS, payload:{response}});
 };
 
@@ -26,4 +34,4 @@ const fetchEbooksError = (error, dispatch) => {
     dispatch({type: FETCH_EBOOKS_ERROR, payload:{error}});
 };
 
-export{fetchEbooks, fetchEbooksError, fetchEbooksSuccess, fetchProtectedEbookError, fetchProtectedEbookSuccess, fetchProtectedEbook};
+export{downloadEbook, fetchEbooks, fetchEbooksError, fetchEbooksSuccess, fetchProtectedEbookError, fetchProtectedEbookSuccess, fetchProtectedEbook};

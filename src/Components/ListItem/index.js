@@ -2,12 +2,15 @@ import React, {Component} from 'react'
 import {View, TouchableOpacity, Image, Text} from 'react-native'
 import styles from './styles';
 import {connect} from 'react-redux';
-import {fetchProtectedEbook} from '../../Actions/mainActions';
+import {fetchProtectedEbook, downloadEbook} from '../../Actions/mainActions';
 
 class ListItem extends Component{
 
     _downloadClick = () => {
+        console.log('before');
         this.props.fetchProtectedEbook(this.props.idusuario, this.props.id);
+        console.log('after');
+        console.log(s);
 
     };
 
@@ -60,4 +63,4 @@ const mapStateToProps = (state) => ({
     idusuario: state.authReducers.idusuario,
 });
 
-export default connect(mapStateToProps, {fetchProtectedEbook})(ListItem)
+export default connect(mapStateToProps, {fetchProtectedEbook, downloadEbook})(ListItem)

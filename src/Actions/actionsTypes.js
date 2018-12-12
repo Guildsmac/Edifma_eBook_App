@@ -23,6 +23,9 @@ const SET_USERNAME_ERROR = 'set_username_error';
 const FETCH_EBOOKS_SUCCESS = 'fetch_ebooks_success';
 const FETCH_EBOOKS_ERROR = 'fetch_ebooks_error';
 const FETCH_PROTECTED_EBOOK_SUCCESS = 'fetch_protected_ebook_success';
+const DOWNLOAD_EBOOK = 'download_ebook';
+const DOWNLOAD_EBOOK_SUCCESS = 'download_ebook_success';
+const DOWNLOAD_EBOOK_ERROR = 'download_ebook_error';
 const FETCH_PROTECTED_EBOOK_ERROR = 'fetch_protected_ebook_error';
 const SWITCH_KEYBOARD = 'switch_keyboard';
 const SCROLL_TO = 'scroll_to';
@@ -30,6 +33,9 @@ const CHANGE_SCROLL_POSITION = 'change_scroll_position';
 const ASSIGN_SCROLLER = 'assign_scroller';
 
 export {
+    DOWNLOAD_EBOOK,
+    DOWNLOAD_EBOOK_ERROR,
+    DOWNLOAD_EBOOK_SUCCESS,
     ASSIGN_SCROLLER,
     CHANGE_SCROLL_POSITION,
     SCROLL_TO,

@@ -4,7 +4,6 @@ import ListItem from "../ListItem";
 import ItemHeader from "../ItemHeader";
 import {connect} from "react-redux";
 import {PRIMARY_DARK} from "../../Consts/Colors";
-import {changeScrollPosition} from "../../Actions/mainActions";
 
 class BookSelectionList extends Component{
     constructor(props){
@@ -95,4 +94,4 @@ const mapStateToProps = (state) => ({
     isActivityIndicatorOn: state.mainReducers.isActivityIndicatorOn
 });
 
-export default connect(mapStateToProps, {changeScrollPosition})(BookSelectionList)
+export default connect(mapStateToProps, {})(BookSelectionList)

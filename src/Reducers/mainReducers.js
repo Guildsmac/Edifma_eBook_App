@@ -10,21 +10,10 @@ import {
 const INITIAL_STATE = {
     isActivityIndicatorOn: false,
     data: [],
-    scrollViewPosition: 0,
-    scroller: null
 };
 
 export default(state = INITIAL_STATE, action) => {
     switch(action.type){
-        case ASSIGN_SCROLLER:{
-            return {...state, scroller: action.payload.scroller};
-        }
-        case CHANGE_SCROLL_POSITION:{
-            return {...state, scrollViewPosition: action.payload.position};
-        }
-        case SCROLL_TO: {
-            return {...state, scrollViewPosition: action.payload.position}
-        }
         case ACTIVITY_INDICATOR_ON:{
             return {...state, isActivityIndicatorOn: true}
         }
