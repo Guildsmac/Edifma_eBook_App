@@ -40,7 +40,7 @@ class BookSelectionList extends Component{
         return r;
     }
 
-    componentWillMount(){
+    _mountList(){
         let _data = this.props.data;
         this.list = (<ScrollView style={{flex:1}}>
             <SectionList
@@ -62,9 +62,11 @@ class BookSelectionList extends Component{
         </ScrollView>);
     }
 
+    componentWillMount(){
+        this._mountList();
+    }
+
     _getStatus = () => {
-
-
         if(this.props.isActivityIndicatorOn){
             return (
                 <View style={{flex:1}}>
@@ -85,8 +87,6 @@ class BookSelectionList extends Component{
         return(
             this._getStatus()
         )
-
-
     }
 }
 

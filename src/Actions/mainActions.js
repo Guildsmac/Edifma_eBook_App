@@ -6,19 +6,13 @@ const fetchEbooks = () => {
     return getEbooks();
 };
 
-const downloadEbook = (idusuario, idebook) => {
-    return dispatch => {
-        let s = fetchProtectedEbook(idusuario, idebook);
-        console.log(s);
-    }
+const fetchProtectedEbook = (idusuario, idebook, download) => {
+    return getProtectedEbook(idusuario, idebook, download);
 };
 
-const fetchProtectedEbook = (idusuario, idebook) => {
-    return getProtectedEbook(idusuario, idebook);
-};
-
-const fetchProtectedEbookSuccess = (response, dispatch) => {
-
+const fetchProtectedEbookSuccess = (response, dispatch, download) => {
+    if(download)
+        //DOWNLOAD
     dispatch({type: FETCH_PROTECTED_EBOOK_SUCCESS, payload:{response}});
 };
 
