@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native'
+import {PRIMARY_FONT} from "../../Consts/Fonts";
 export default StyleSheet.create({
     northArea:{
         flex:11,
@@ -8,5 +9,4 @@ export default StyleSheet.create({
     southArea:{
         flex:9,
     },
-
 })
