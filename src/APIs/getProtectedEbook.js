@@ -6,8 +6,7 @@ import{
 } from "../Actions/mainActions";
 import {ACTIVITY_INDICATOR_ON} from "../Actions/actionsTypes";
 
-const getProtectedEbook = (usuario_idusuario, e_book_ide_book) => {
-
+const getProtectedEbook = (usuario_idusuario, e_book_ide_book, download) => {
     return dispatch => {
         dispatch({type: ACTIVITY_INDICATOR_ON});
         axios.post(MANAGE_PROTECTED_EBOOKS_REQUEST, {

@@ -1,7 +1,9 @@
 import{FETCH_EBOOKS_ERROR, FETCH_EBOOKS_SUCCESS, FETCH_PROTECTED_EBOOK_ERROR, FETCH_PROTECTED_EBOOK_SUCCESS} from "./actionsTypes";
+import {download as downloadFile} from "../auxilliaryFunctions";
 
 import getEbooks from '../APIs/getEbooks'
 import getProtectedEbook from '../APIs/getProtectedEbook';
+
 const fetchEbooks = () => {
     return getEbooks();
 };
@@ -11,8 +13,9 @@ const fetchProtectedEbook = (idusuario, idebook, download) => {
 };
 
 const fetchProtectedEbookSuccess = (response, dispatch, download) => {
-    if(download)
-        //DOWNLOAD
+    console.log(response);
+    if(download);
+        downloadFile(response.data.message.downloadable_path, response.data.message.filename);
     dispatch({type: FETCH_PROTECTED_EBOOK_SUCCESS, payload:{response}});
 };
 
@@ -28,4 +31,4 @@ const fetchEbooksError = (error, dispatch) => {
     dispatch({type: FETCH_EBOOKS_ERROR, payload:{error}});
 };
 
-export{downloadEbook, fetchEbooks, fetchEbooksError, fetchEbooksSuccess, fetchProtectedEbookError, fetchProtectedEbookSuccess, fetchProtectedEbook};
+export{fetchEbooks, fetchEbooksError, fetchEbooksSuccess, fetchProtectedEbookError, fetchProtectedEbookSuccess, fetchProtectedEbook};
