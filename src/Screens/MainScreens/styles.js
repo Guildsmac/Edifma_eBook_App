@@ -9,4 +9,12 @@ export default StyleSheet.create({
     southArea:{
         flex:9,
     },
+    bigText:{
+        fontFamily:PRIMARY_FONT,
+        fontSize:24,
+    },
+    normalText:{
+        fontFamily:PRIMARY_FONT,
+        fontSize:18
+    },
 })

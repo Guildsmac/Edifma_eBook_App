@@ -12,6 +12,14 @@ export default StyleSheet.create({
         marginBottom:20,
 
     },
+    redDotImage:{
+        position:'absolute',
+        width:44,
+        height:44,
+        top:100,
+        left:320,
+        opacity:0.7
+    },
     bigText:{
         fontFamily:PRIMARY_FONT,
         fontSize:24,
@@ -54,6 +62,6 @@ export default StyleSheet.create({
         borderTopLeftRadius:9,
         elevation:1,
         paddingLeft:90,
-        paddingTop:18,
+        paddingTop:4,
     }
 })
