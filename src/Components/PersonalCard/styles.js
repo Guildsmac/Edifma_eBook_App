@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-import {PRIMARY_BACKGROUND} from "../../Consts/Colors";
+import {PRIMARY_BACKGROUND, PRIMARY_DARK, PRIMARY_NORMAL, SECONDARY_DARK, SECONDARY_NORMAL} from "../../Consts/Colors";
 import {PRIMARY_FONT} from "../../Consts/Fonts";
 export default StyleSheet.create({
     container:{
@@ -33,7 +33,7 @@ export default StyleSheet.create({
         width:100,
         height:100,
         borderWidth:3,
-        borderColor:'#aaa',
+        borderColor:PRIMARY_DARK,
         top:22,
         paddingBottom:10,
         zIndex:1000000,
@@ -52,10 +52,11 @@ export default StyleSheet.create({
         width:'100%',
         zIndex:-1000,
         borderWidth:0.5,
-        borderColor:'#aaa',
+        borderColor:PRIMARY_NORMAL,
         borderTopWidth:0,
-        borderLeftWidth:1,
-        borderRightWidth:1,
+        borderLeftWidth:3,
+        borderRightWidth:0,
+        borderBottomWidth:1,
         borderBottomLeftRadius:10,
         borderBottomRightRadius:10,
         borderTopRightRadius:9,
