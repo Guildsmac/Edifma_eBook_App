@@ -5,6 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 import {changePassword, changeUsername, cleanAll} from "../../Actions/authActions";
 import {PRIMARY_DARK} from "../../Consts/Colors";
+import FloatingInput from '../FloatingInput';
 
 class LoginFirstStep extends Component {
 
@@ -66,12 +67,12 @@ class LoginFirstStep extends Component {
             <Animated.View style={[animation, {width:'100%', flex:1}]}>
                 <View style={{ flex: 1 }}>
                     <View style={{flex:2, justifyContent:'center'}}>
-                        <Text style={[thisStyle.text, {marginLeft:2 }]}>Nome de usuário/email</Text>
-                        <TextInput
-                            placeholder="Insira aqui"
-                            style={[thisStyle.inputField,]}
+
+                        <FloatingInput
+                            label="Nome de Usuário/Email"
                             value={this.props.username}
-                            onChangeText={(text) => this.props.changeUsername(text)}
+                            onChangeText = {(text) => this.props.changeUsername(text)}
+
                         />
                     </View>
                     <KeyboardAvoidingView enabled={false} style={{flex:1}}>

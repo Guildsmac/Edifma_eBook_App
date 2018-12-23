@@ -11,6 +11,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {changePassword, cleanAll} from "../../Actions/authActions";
 import {PRIMARY_DARK} from "../../Consts/Colors";
+import FloatingInput from '../FloatingInput';
 
 class LoginSecondStep extends Component {
 
@@ -79,15 +80,13 @@ class LoginSecondStep extends Component {
                 <View style={{justifyContent: 'space-between', flex: 6, paddingVertical: 80}}>
                     <View style={{justifyContent: 'space-between'}}>
                         <Text
-                            style={[thisStyle.bigText, {marginBottom: 12}]}>Olá, {this.props.nome.split(' ')[0]}</Text>
-                        <Text style={thisStyle.text}>Senha</Text>
-                        <TextInput
-                            placeholderStyle={thisStyle.inputField}
-                            placeholder="Insira aqui"
-                            secureTextEntry = {true}
-                            style={thisStyle.inputField}
+                            style={[thisStyle.bigText, {marginBottom: 12}]}>Olá, {this.props.nome.split(' ')[0]}
+                        </Text>
+                        <FloatingInput
+                            label="Senha"
                             value={this.props.senha}
-                            onChangeText={(text) => this.props.changePassword(text)}
+                            onChangeText = {(text) => this.props.changePassword(text)}
+                            secureTextEntry
                         />
                     </View>
                     <KeyboardAvoidingView enabled={false}>
