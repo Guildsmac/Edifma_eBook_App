@@ -23,6 +23,37 @@ class ListItem extends Component{
 
         return(
             <View style={styles.container}>
+                <View style={styles.imageView}>
+                    <Image style={styles.imageIcon} source={_imageUrl}/>
+                </View>
+                <View style={styles.contentView}>
+                    <View style={styles.infoView}>
+                        <View style={styles.mainText}>
+                            <Text style={[styles.text, styles.titleText]} numberOfLines={1}>
+                                {this.props.title}
+                            </Text>
+                            <Text style={[styles.text, styles.authorText]} numberOfLines={1}>
+                                Por {this.props.author}
+                            </Text>
+                        </View>
+                        <View>
+                            <Text style={[styles.text, styles.descriptionText]} numberOfLines={4}>
+                                {this.props.description}
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.actionView}>
+                        <TouchableOpacity style={styles.downloadButton}>
+                            <Text style={[styles.text]}>FAZER DOWNLOAD</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.readButton}>
+                            <Text style={[styles.text]}>LER AGORA</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            /*<View style={styles.container}>
                 <TouchableOpacity style={{flex:1}}>
                     <View style={styles.topLeftArea}>
                         <View style={styles.mainImage}>
@@ -51,7 +82,7 @@ class ListItem extends Component{
                         <Image style={styles.imageIcon} source={require('../../Images/open-book.png')}/>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </View>*/
          )
     }
 }

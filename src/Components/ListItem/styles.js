@@ -1,15 +1,54 @@
 import {StyleSheet} from 'react-native'
-import {PRIMARY_NORMAL} from "../../Consts/Colors";
+import {PRIMARY_LIGHT, PRIMARY_NORMAL} from "../../Consts/Colors";
 import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 export default StyleSheet.create({
     container:{
         borderBottomColor: PRIMARY_NORMAL,
         borderBottomWidth: 1,
-        height:180,
+        height:190,
         padding:10,
         flexDirection:'row',
 
     },
+
+    imageView:{
+        flex:3
+    },
+
+    contentView:{
+        flex:7,
+        marginLeft:3
+    },
+
+    infoView:{
+        flex:5,
+    },
+
+    actionView:{
+        flex:1,
+        flexDirection:'row',
+    },
+
+    downloadButton:{
+        flex:2,
+        borderWidth:0.5,
+        borderRadius:2,
+        borderColor:'#000',
+        backgroundColor:PRIMARY_NORMAL,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+
+    readButton:{
+        flex:1,
+        borderWidth:0.5,
+        borderColor:'#000',
+        borderRadius:2,
+        backgroundColor:PRIMARY_LIGHT,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+
     topLeftArea:{
         flexDirection: 'row',
         flex:1.2,
@@ -30,20 +69,20 @@ export default StyleSheet.create({
 
     },
     titleText:{
-        fontSize: 24,
+        fontSize: 22,
         fontFamily: PRIMARY_FONT_BLACK
 
     },
     authorText:{
-        fontSize:21,
+        fontSize:19,
 
     },
     descriptionText:{
-        fontSize:18,
+        fontSize:16,
     },
     imageIcon:{
-        height: 64,
-        width:64
+        height: '100%',
+        width:'100%'
     },
     mainImage:{
         padding:6,
@@ -51,7 +90,7 @@ export default StyleSheet.create({
     },
     mainText:{
         flex:1,
-        justifyContent:'center',
+        marginLeft:5,
         flexWrap: 'wrap'
     }
 })
