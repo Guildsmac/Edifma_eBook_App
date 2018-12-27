@@ -43,16 +43,17 @@ class LoginSecondStep extends Component {
         if (this.props.isActivityIndicatorOn)
             return <ActivityIndicator size="large" color={PRIMARY_DARK}/>;
         else
-            return (<View>
-                        <TouchableOpacity onPress={this.props.action}>
-                            <View style={[thisStyle.button]}>
-                                <Text style={thisStyle.whiteText}>Prosseguir</Text>
+            return (<View style={{flexDirection: 'row'}}>
+
+
+                        <TouchableOpacity onPress={this.props.actionBack} style={[thisStyle.backButton, {flex:1.25}]}>
+                            <View >
+                                <Text style={thisStyle.secondaryText}>Voltar</Text>
                             </View>
                         </TouchableOpacity>
-
-                        <TouchableOpacity onPress={this.props.actionBack}>
-                            <View style={[thisStyle.backButton, {marginTop:12}]}>
-                                <Text style={thisStyle.whiteText}>Voltar</Text>
+                        <TouchableOpacity onPress={this.props.action} style={[thisStyle.button, {flex:2, marginLeft:8}]}>
+                            <View>
+                                <Text style={thisStyle.primaryText}>Prosseguir</Text>
                             </View>
                         </TouchableOpacity>
                     </View>)

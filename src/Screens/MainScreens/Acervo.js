@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {BackHandler, ScrollView, ActivityIndicator, View, Text} from 'react-native'
 import ListItem from '../../Components/ListItem'
 import ItemHeader from '../../Components/ItemHeader'
+import inheritStyle from '../styles';
 import {Actions} from "react-native-router-flux";
 import {fetchEbooks} from '../../Actions/mainActions';
 import {connect} from 'react-redux';
@@ -37,7 +38,7 @@ class Acervo extends Component{
             )
         }
         else
-            return(<BookSelectionList data = {this.props.data}/>);
+            return(<View style={inheritStyle.container}><BookSelectionList data = {this.props.data}/></View>);
     };
 
     render() {

@@ -58,3 +58,7 @@ buck-out/
 #src
 #
 src/Images/*.png
+src/Fonts/*
+src/Fonts/
+src/Fonts
+

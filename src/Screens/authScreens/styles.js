@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-    PRIMARY_BACKGROUND, PRIMARY_DARK,
+    PRIMARY_BACKGROUND, PRIMARY_DARK, PRIMARY_NORMAL,
     SECONDARY_COLOR,
     SECONDARY_DARK,
     SECONDARY_FONT_COLOR,
@@ -54,7 +54,7 @@ export default StyleSheet.create({
     whiteText:{
         fontFamily: PRIMARY_FONT,
         fontSize: 18,
-        color: SECONDARY_FONT_COLOR,
+        color: PRIMARY_BACKGROUND,
         textAlign:'center'
     },
     inputField:{
@@ -64,19 +64,42 @@ export default StyleSheet.create({
         fontFamily: PRIMARY_FONT,
     },
     button:{
-        backgroundColor: SECONDARY_DARK,
-        borderRadius: 4,
+        borderRadius:5,
+        borderColor:PRIMARY_NORMAL,
+        backgroundColor:PRIMARY_NORMAL,
+        width:'90%',
         padding:12,
+        elevation:4,
+        alignItems:'center',
+        justifyContent:'center'
     },
     secondaryButton:{
-        backgroundColor: SECONDARY_NORMAL,
-        borderRadius: 4,
+        backgroundColor: PRIMARY_BACKGROUND,
+        borderColor: SECONDARY_DARK,
+        borderWidth:0.5,
+        elevation:4,
+        borderRadius: 6,
         padding:12,
     },
     backButton:{
-        backgroundColor: SECONDARY_LIGHT,
-        borderRadius: 4,
+        backgroundColor: PRIMARY_BACKGROUND,
+        borderColor: SECONDARY_DARK,
+        borderWidth:0.5,
+        elevation:4,
+        borderRadius: 6,
         padding:12,
+    },
+    primaryText:{
+        fontFamily: PRIMARY_FONT,
+        fontSize: 18,
+        color: PRIMARY_BACKGROUND,
+        textAlign:'center'
+    },
+    secondaryText:{
+        fontFamily: PRIMARY_FONT,
+        fontSize: 18,
+        color: PRIMARY_NORMAL,
+        textAlign:'center'
     },
     link:{
         color: SECONDARY_FONT_COLOR,

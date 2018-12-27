@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-import {PRIMARY_LIGHT, PRIMARY_NORMAL} from "../../Consts/Colors";
+import {PRIMARY_BACKGROUND, PRIMARY_LIGHT, PRIMARY_NORMAL, SECONDARY_DARK, SECONDARY_NORMAL} from "../../Consts/Colors";
 import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 export default StyleSheet.create({
     container:{
@@ -7,6 +7,7 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         height:190,
         padding:10,
+        paddingBottom:5,
         flexDirection:'row',
 
     },
@@ -17,7 +18,7 @@ export default StyleSheet.create({
 
     contentView:{
         flex:7,
-        marginLeft:3
+        marginLeft:3,
     },
 
     infoView:{
@@ -30,21 +31,24 @@ export default StyleSheet.create({
     },
 
     downloadButton:{
-        flex:2,
-        borderWidth:0.5,
-        borderRadius:2,
-        borderColor:'#000',
+        flex:1.5,
         backgroundColor:PRIMARY_NORMAL,
+        borderWidth:0.5,
+        elevation:4,
+        borderColor:PRIMARY_NORMAL,
+        borderRadius:5,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        marginRight:5
     },
 
     readButton:{
         flex:1,
+        borderColor:SECONDARY_DARK,
+        elevation:4,
         borderWidth:0.5,
-        borderColor:'#000',
-        borderRadius:2,
-        backgroundColor:PRIMARY_LIGHT,
+        backgroundColor:PRIMARY_BACKGROUND,
+        borderRadius:5,
         alignItems:'center',
         justifyContent:'center'
     },

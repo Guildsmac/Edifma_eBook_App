@@ -42,15 +42,15 @@ class RegisterScreen extends Component {
         if(this.props.isActivityIndicatorOn)
             return <ActivityIndicator size = "large" color = {PRIMARY_DARK}/>;
         else return(<KeyboardAvoidingView enabled={false}
-                                          style={{flexDirection: 'row', justifyContent: 'space-around', width: '80%'}}>
-            <TouchableOpacity onPress={() => this.backButtonPress()} style={{width: '30%'}}>
-                <View style={pageStyles.backButton}>
-                    <Text style={pageStyles.whiteText}>Voltar</Text>
+                                          style={{flex:3,flexDirection: 'row'}}>
+            <TouchableOpacity onPress={() => this.backButtonPress()} style={[pageStyles.secondaryButton, {flex:1.25, marginRight:10, height:50}]}>
+                <View>
+                    <Text style={pageStyles.secondaryText}>Voltar</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{width: '60%'}} onPress={() => this.props.registerUser({nome: this.props.nome, username: this.props.username,
+            <TouchableOpacity style={[{flex:2, height:50}, pageStyles.button]} onPress={() => this.props.registerUser({nome: this.props.nome, username: this.props.username,
                 email:this.props.email, cpf:this.props.cpf, senha: this.props.senha})}>
-                <View style={pageStyles.button}>
+                <View style={[]}>
                     <Text style={pageStyles.whiteText}>CONFIRMAR</Text>
                 </View>
             </TouchableOpacity>
@@ -76,7 +76,8 @@ class RegisterScreen extends Component {
 
         return (
             <View style={inheritedStyle.container}>
-                <Animated.View style={[animation, pageStyles.mainContent, {flex: 14, justifyContent: 'space-between', marginVertical: 36}]}>
+                <Animated.View style={[animation, pageStyles.mainContent, ]}>
+                    <View style={{flex: 14, justifyContent: 'space-between', marginVertical: 36}}>
                     <View>
                         <RegisterField text='Nome' focusAction={() => {
                         }} value={this.props.nome} changeTextAction={this.props.changeName}
@@ -105,6 +106,7 @@ class RegisterScreen extends Component {
                                        changeTextAction={this.props.changePassword} placeholder='Insira sua senha aqui'
                                        password={true} focusAction={this.props.clearCpfErro}/>
                         <Text></Text>
+                    </View>
                     </View>
                     {this.getStatus()}
                 </Animated.View>

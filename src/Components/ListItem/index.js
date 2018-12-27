@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import {View, TouchableOpacity, Image, Text} from 'react-native'
+import {View, TouchableOpacity,TouchableHighlight,TouchableNativeFeedback, Image, Text} from 'react-native'
 import styles from './styles';
 import {connect} from 'react-redux';
 import {fetchProtectedEbook} from '../../Actions/mainActions';
+import {PRIMARY_BACKGROUND, PRIMARY_NORMAL} from "../../Consts/Colors";
 
 class ListItem extends Component{
 
@@ -28,7 +29,7 @@ class ListItem extends Component{
                 </View>
                 <View style={styles.contentView}>
                     <View style={styles.infoView}>
-                        <View style={styles.mainText}>
+                        <View style={[styles.mainText, {flex:2}]}>
                             <Text style={[styles.text, styles.titleText]} numberOfLines={1}>
                                 {this.props.title}
                             </Text>
@@ -36,19 +37,23 @@ class ListItem extends Component{
                                 Por {this.props.author}
                             </Text>
                         </View>
-                        <View>
+                        <View style={{flex:3}}>
                             <Text style={[styles.text, styles.descriptionText]} numberOfLines={4}>
                                 {this.props.description}
                             </Text>
                         </View>
                     </View>
                     <View style={styles.actionView}>
-                        <TouchableOpacity style={styles.downloadButton}>
-                            <Text style={[styles.text]}>FAZER DOWNLOAD</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.readButton}>
-                            <Text style={[styles.text]}>LER AGORA</Text>
-                        </TouchableOpacity>
+                        <TouchableNativeFeedback onPress={this._downloadClick} background={TouchableNativeFeedback.SelectableBackground()}>
+                            <View style={styles.downloadButton}>
+                                <Text style={[styles.text, {color:PRIMARY_BACKGROUND}]}>FAZER DOWNLOAD</Text>
+                            </View>
+                        </TouchableNativeFeedback>
+                        <TouchableNativeFeedback background={TouchableNativeFeedback.SelectableBackground()}>
+                            <View style={styles.readButton}>
+                                <Text style={[styles.text, {color:PRIMARY_NORMAL}]}>LER AGORA</Text>
+                            </View>
+                        </TouchableNativeFeedback>
                     </View>
                 </View>
             </View>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, BackHandler, Animated} from 'react-native';
+import {View, Text, BackHandler, Animated, TouchableNativeFeedback} from 'react-native';
 import Hr from 'react-native-hr-plus';
 import {cleanAll} from "../../Actions/authActions";
 import {Actions} from 'react-native-router-flux';
@@ -45,9 +45,27 @@ class Dashboard extends Component{
         return(
             <View style = {inheritStyle.container}>
                 <View style ={styles.northArea}>
-                    <MenuButton text="Acervo de Livros" action={() => this._onBtnAcervoClick()}/>
-                    <MenuButton text="Sobre a Editora" action={() => this._onBtnAboutClick()}/>
-                    <MenuButton text="Links importantes" action={() => this._onLinksImportantesClick()}/>
+                    <TouchableNativeFeedback onPress={this._onBtnAcervoClick}>
+                        <View style={styles.primaryButton}>
+                            <Text style={[styles.bigText, styles.primaryTextButton]}>
+                                Acervo de Livros
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback onPress={this._onBtnAboutClick}>
+                        <View style={styles.secondaryButton}>
+                            <Text style={[styles.bigText, styles.secondaryTextButton]}>
+                                Sobre a Editora
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback onPress={this._onLinksImportantesClick}>
+                        <View style={styles.secondaryButton}>
+                            <Text style={[styles.bigText, styles.secondaryTextButton]}>
+                                Links Importantes
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
                 </View>
                 <View style={styles.southArea}>
                     <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5}}>
