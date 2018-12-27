@@ -91,7 +91,7 @@ class LoginSecondStep extends Component {
                         />
                     </View>
                     <KeyboardAvoidingView enabled={false}>
-                        <Text style={thisStyle.textError}>{this.props.erroSenha}</Text>
+                        <Text style={thisStyle.textErrorBig}>{this.props.erroSenha}</Text>
                         {this.getStatus()}
                     </KeyboardAvoidingView>
 

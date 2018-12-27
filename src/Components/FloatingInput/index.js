@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, Animated} from 'react-native';
 import styles from './styles.js';
-import {PRIMARY_DARK, PRIMARY_LIGHT} from "../../Consts/Colors";
+import {PRIMARY_DARK, PRIMARY_LIGHT, PRIMARY_NORMAL} from "../../Consts/Colors";
 import {PRIMARY_FONT} from "../../Consts/Fonts";
 
 class FloatingInput extends Component{
@@ -60,16 +60,26 @@ class FloatingInput extends Component{
                 inputRange: [0, 1],
                 outputRange: [PRIMARY_DARK, '#000'],
             }),
-
                 marginLeft:4,
                 opacity: !this.state.isFocused ? 0.8 : 1,
                 fontFamily: PRIMARY_FONT,
         };
 
+        const animatedBorderStyle={
+            borderBottomColor: this._animatedIsFocused.interpolate({
+                inputRange:[0,1],
+                outputRange:[PRIMARY_NORMAL, '#555']
+            }),
+            borderBottomWidth: this._animatedIsFocused.interpolate({
+                inputRange:[0,1],
+                outputRange:[1, 1.5]
+            })
+        };
+
         const {label, ...props} = this.props;
 
         return(
-            <View style={styles.container}>
+            <Animated.View style={[styles.container, animatedBorderStyle]}>
                 <Animated.Text style={labelStyle}>
                     {label}
                 </Animated.Text>
@@ -81,7 +91,7 @@ class FloatingInput extends Component{
                     blurOnSubmit
                     underlineColorAndroid = 'transparent'
                 />
-            </View>
+            </Animated.View>
          )
     }
 }

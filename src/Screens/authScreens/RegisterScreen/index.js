@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Animated, View, TouchableOpacity, Text, KeyboardAvoidingView, ActivityIndicator} from 'react-native'
+import {Animated, View, TouchableOpacity, Text, KeyboardAvoidingView, ActivityIndicator, Keyboard} from 'react-native'
 import Header from "../../../Components/Header";
 import RegisterField from "../../../Components/RegisterField";
 import inheritedStyle from '../../styles';
@@ -23,8 +23,33 @@ class RegisterScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visibility: new Animated.Value(0)
-        }
+            visibility: new Animated.Value(0),
+            isKeyboardOpen: false
+        };
+        this.toggleKeyboard = this.toggleKeyboard.bind(this);
+    }
+
+    componentWillMount () {
+        console.log('this', this.state);
+        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {this._keyboardDidShow(this)});
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {this._keyboardDidHide(this)});
+    }
+
+    componentWillUnmount () {
+        this.keyboardDidShowListener.remove();
+        this.keyboardDidHideListener.remove();
+    }
+
+    toggleKeyboard(){
+        this.setState({isKeyboardOpen: !this.state.isKeyboardOpen});
+    }
+
+    _keyboardDidShow (thisClass) {
+        thisClass.toggleKeyboard();
+    }
+
+    _keyboardDidHide (thisClass) {
+        thisClass.toggleKeyboard();
     }
 
     backButtonPress() {
@@ -41,8 +66,10 @@ class RegisterScreen extends Component {
     getStatus(){
         if(this.props.isActivityIndicatorOn)
             return <ActivityIndicator size = "large" color = {PRIMARY_DARK}/>;
-        else return(<KeyboardAvoidingView enabled={false}
-                                          style={{flex:3,flexDirection: 'row'}}>
+        else if(this.state.isKeyboardOpen)
+            return <View></View>;
+        else return(<View
+                                          style={{flex:2,flexDirection: 'row'}}>
             <TouchableOpacity onPress={() => this.backButtonPress()} style={[pageStyles.secondaryButton, {flex:1.25, marginRight:10, height:50}]}>
                 <View>
                     <Text style={pageStyles.secondaryText}>Voltar</Text>
@@ -54,7 +81,7 @@ class RegisterScreen extends Component {
                     <Text style={pageStyles.whiteText}>CONFIRMAR</Text>
                 </View>
             </TouchableOpacity>
-        </KeyboardAvoidingView>)
+        </View>)
 
     }
 
@@ -75,9 +102,9 @@ class RegisterScreen extends Component {
         };
 
         return (
-            <View style={inheritedStyle.container}>
+            <KeyboardAvoidingView enabled={false} style={inheritedStyle.container}>
                 <Animated.View style={[animation, pageStyles.mainContent, ]}>
-                    <View style={{flex: 14, justifyContent: 'space-between', marginVertical: 36}}>
+                    <View style={{flex: 14, justifyContent: 'space-between', marginTop:12, marginBottom:36 }}>
                     <View>
                         <RegisterField text='Nome' focusAction={() => {
                         }} value={this.props.nome} changeTextAction={this.props.changeName}
@@ -111,7 +138,7 @@ class RegisterScreen extends Component {
                     {this.getStatus()}
                 </Animated.View>
 
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }

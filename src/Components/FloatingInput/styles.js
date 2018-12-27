@@ -5,6 +5,7 @@ export default StyleSheet.create({
 
     container:{
         paddingTop:18,
+        borderBottomWidth: 1,
 
     },
     inputStyle: {
@@ -12,8 +13,6 @@ export default StyleSheet.create({
         fontFamily: PRIMARY_FONT,
         fontSize:14,
         color:'#000',
-        borderBottomWidth: 1,
-        borderBottomColor: '#555',
         paddingLeft:6
 
     }

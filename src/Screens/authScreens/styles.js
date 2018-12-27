@@ -30,6 +30,13 @@ export default StyleSheet.create({
     textError:{
         fontFamily: PRIMARY_FONT,
         color: '#f00',
+        fontSize: 14,
+        marginLeft:10,
+        textAlign: 'left'
+    },
+    textErrorBig:{
+        fontFamily: PRIMARY_FONT,
+        color: '#f00',
         fontSize: 18,
         textAlign: 'center'
     },

@@ -77,7 +77,7 @@ class LoginFirstStep extends Component {
                     </View>
                     <KeyboardAvoidingView enabled={false} style={{flex:1}}>
                         <View style={{flex:1,justifyContent:'center'}}>
-                            <Text style={thisStyle.textError}>{this.props.erroLogin}</Text>
+                            <Text style={thisStyle.textErrorBig}>{this.props.erroLogin}</Text>
                         </View>
                         <View style={{flex:3}}>
                             {this.getStatus()}
