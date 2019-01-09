@@ -67,12 +67,12 @@ class Dashboard extends Component{
                         </View>
                     </TouchableNativeFeedback>
                 </View>
-                <View style={styles.southArea}>
+                {/*<View style={styles.southArea}>
                     <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5}}>
                         <Text style={{fontSize:20,paddingHorizontal:6, fontFamily:PRIMARY_FONT, color:PRIMARY_NORMAL_FONT_COLOR}}>Vistos recentemente</Text>
                     </Hr>
                     <RecentlyViewedSlider/>
-                </View>
+                </View>*/}
             </View>
          )
     }

@@ -5,7 +5,7 @@ export default StyleSheet.create({
     northArea:{
         flex:11,
         alignItems:'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
     },
     southArea:{
         flex:9,
