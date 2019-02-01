@@ -49,11 +49,11 @@ class ListItem extends Component{
                                 <Text style={[styles.text, {color:PRIMARY_BACKGROUND}]}>FAZER DOWNLOAD</Text>
                             </View>
                         </TouchableNativeFeedback>
-                        <TouchableNativeFeedback background={TouchableNativeFeedback.SelectableBackground()}>
+                        {/*<TouchableNativeFeedback background={TouchableNativeFeedback.SelectableBackground()}>
                             <View style={styles.readButton}>
                                 <Text style={[styles.text, {color:PRIMARY_NORMAL}]}>LER AGORA</Text>
                             </View>
-                        </TouchableNativeFeedback>
+                        </TouchableNativeFeedback>*/}
                     </View>
                 </View>
             </View>
