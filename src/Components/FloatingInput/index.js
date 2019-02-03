@@ -15,11 +15,9 @@ class FloatingInput extends Component{
     }
 
     _shouldFloat(){
-        console.log('Is focused: ', this.state.isFocused);
         let strLen = 0;
         if(this.props.value)
             strLen = this.props.value.length;
-        console.log(strLen);
         if(this.state.isFocused || strLen !== 0)
             return true;
         return false;
@@ -27,12 +25,10 @@ class FloatingInput extends Component{
     }
 
     componentWillMount(){
-        console.log('willmount');
         this._animatedIsFocused = new Animated.Value(!this.state.isFocused ? 0 : 1);
     }
 
     componentDidUpdate(){
-        console.log('didupdate');
         Animated.timing(this._animatedIsFocused, {
             toValue: (this._shouldFloat()) ? 1 : 0,
             duration:200,

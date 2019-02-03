@@ -17,12 +17,36 @@ import {
     CLEAR_CPF_ERRO,
     REGISTER_USER_ERROR,
     REGISTER_USER_SUCCESS,
-    REGISTER_USER, SET_CPF_ERROR, SET_EMAIL_ERROR, SET_USERNAME_ERROR, SWITCH_KEYBOARD
+    REGISTER_USER, SET_CPF_ERROR, SET_EMAIL_ERROR, SET_USERNAME_ERROR, SWITCH_KEYBOARD,
+    CONNECT_TO_INTERNET,
+    DISCONNECT_FROM_INTERNET
 } from "./actionsTypes";
 import usernameAuth from "../APIs/usernameAuth";
 import userAuth from '../APIs/userAuth';
 import {Actions} from 'react-native-router-flux';
 import createUser from "../APIs/createUser";
+
+
+const handleConnectivityChange = isConnected => {
+    return dispatch => {
+        if(isConnected)
+            isConnectedToInternet(dispatch);
+        else
+            isNotConnectedToInternet(dispatch);
+    }
+};
+
+const isConnectedToInternet = (dispatch) => {
+    dispatch({
+        type: CONNECT_TO_INTERNET
+    });
+};
+
+const isNotConnectedToInternet = (dispatch) => {
+    dispatch({
+        type: DISCONNECT_FROM_INTERNET
+    });
+};
 
 const registerUserSucess = (response, dispatch) => {
     alert('Você foi cadastrado com sucesso!');
@@ -221,5 +245,6 @@ export {
     backToFirstStep,
     turnActivityIndicatorOff,
     turnActivityIndicatorOn,
-    switchKeyboard
+    switchKeyboard,
+    handleConnectivityChange
 };

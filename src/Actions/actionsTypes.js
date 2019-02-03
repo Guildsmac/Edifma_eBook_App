@@ -31,8 +31,12 @@ const SWITCH_KEYBOARD = 'switch_keyboard';
 const SCROLL_TO = 'scroll_to';
 const CHANGE_SCROLL_POSITION = 'change_scroll_position';
 const ASSIGN_SCROLLER = 'assign_scroller';
+const CONNECT_TO_INTERNET = 'connected_to_internet';
+const DISCONNECT_FROM_INTERNET = 'disconnected_from_internet';
 
 export {
+    CONNECT_TO_INTERNET,
+    DISCONNECT_FROM_INTERNET,
     DOWNLOAD_EBOOK,
     DOWNLOAD_EBOOK_ERROR,
     DOWNLOAD_EBOOK_SUCCESS,

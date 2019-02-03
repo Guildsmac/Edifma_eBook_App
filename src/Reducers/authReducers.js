@@ -14,7 +14,9 @@ import {
     SET_USERNAME_ERROR,
     SET_EMAIL_ERROR,
     SET_CPF_ERROR,
-    SWITCH_KEYBOARD
+    SWITCH_KEYBOARD,
+    CONNECT_TO_INTERNET,
+    DISCONNECT_FROM_INTERNET
 
 } from "../Actions/actionsTypes";
 
@@ -34,12 +36,17 @@ const INITIAL_STATE = {
     erroUsuario: '',
     erroCpf: '',
     erroEmail: '',
-    isKeyboardOn: false
+    isKeyboardOn: false,
+    isConnectedToInternet: true
 
 };
 
 export default(state = INITIAL_STATE, action) => {
     switch(action.type){
+        case CONNECT_TO_INTERNET:
+            return {...state, isConnectedToInternet: true};
+        case DISCONNECT_FROM_INTERNET:
+            return {...state, isConnectedToInternet: false};
         case SWITCH_KEYBOARD:
             return {...state, isKeyboardOn: !state.isKeyboardOn};
         case CHANGE_USERNAME:

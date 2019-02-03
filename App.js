@@ -7,18 +7,19 @@
  */
 
 import React, {Component} from 'react';
-import {View, StatusBar, StatusBarIOS, Platform, Text} from 'react-native';
+import {Platform, StatusBar, StatusBarIOS, View, NetInfo} from 'react-native';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import Routes from './Routes';
 import ReduxThunk from 'redux-thunk'
 import {PRIMARY_DARK} from "./src/Consts/Colors";
 import reducers from './src/Reducers';
+import NoInternet from "./src/Components/NoInternet";
 
 
 export default class App extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -30,17 +31,22 @@ export default class App extends Component {
         />
     };
 
-    render() {
 
+
+    render() {
         return (
             <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+
                 <View style={{flex: 1}}>
+
                     {this.getStatusBar()}
                     <Routes/>
+                    <NoInternet/>
+
                 </View>
 
             </Provider>
 
-    );
+        );
     }
 }
