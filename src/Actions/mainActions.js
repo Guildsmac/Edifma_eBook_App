@@ -4,8 +4,8 @@ import {download as downloadFile} from "../auxilliaryFunctions";
 import getEbooks from '../APIs/getEbooks'
 import getProtectedEbook from '../APIs/getProtectedEbook';
 
-const fetchEbooks = () => {
-    return getEbooks();
+const fetchEbooks = (idusuario) => {
+    return getEbooks(idusuario);
 };
 
 const fetchProtectedEbook = (idusuario, idebook, download) => {

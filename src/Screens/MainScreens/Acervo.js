@@ -21,7 +21,7 @@ class Acervo extends Component{
     };
 
     componentWillMount(){
-        this.props.fetchEbooks();
+        this.props.fetchEbooks(this.props.idUsuario);
     }
 
     handleBackPress = () => {
@@ -30,6 +30,7 @@ class Acervo extends Component{
     };
 
     getScreenState = () => {
+        console.log(this.props.data);
         if(this.props.data.length === 0 || !this.props.data){
             return(
                 <View style={{alignItems: 'center', justifyContent: 'center', flex:1}}>
@@ -50,6 +51,7 @@ class Acervo extends Component{
 
 const mapStateToProps = (state) => {
     return{
+        idUsuario: state.authReducers.idusuario,
         data: state.mainReducers.data
     }
 }

@@ -6,10 +6,17 @@ import {
 } from "../Actions/mainActions";
 import {ACTIVITY_INDICATOR_ON} from "../Actions/actionsTypes";
 
-const getEbooks = () => {
+const getEbooks = (idusuario) => {
     return dispatch => {
         dispatch({type: ACTIVITY_INDICATOR_ON});
         axios.get(MANAGE_EBOOKS_REQUEST, {
+            headers:{
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*"
+            },
+            params:{
+                idusuario: idusuario
+            }
         }).then(response => {
             fetchEbooksSuccess(response, dispatch);
         }).catch(error => {
