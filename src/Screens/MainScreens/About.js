@@ -27,11 +27,11 @@ class About extends Component {
         return (
             <ScrollView style={{
             }}>
-                <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5}}>
+                <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5, marginTop:3}}>
                     <Text style={{fontSize:20,paddingHorizontal:6, fontFamily:PRIMARY_FONT, color:PRIMARY_NORMAL_FONT_COLOR}}>A Editora</Text>
                 </Hr>
                 <Text style={[styles.normalText, {marginHorizontal:12, marginBottom:20, marginTop:8}]}>{'\t\t'}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent est purus, mollis sit amet leo at, bibendum volutpat odio. Maecenas cursus tortor molestie aliquam dictum. Aliquam vehicula congue lacus nec aliquam. Ut eleifend lobortis pulvinar. Donec semper massa eget velit dictum tempus. Etiam viverra orci et vestibulum dignissim. Integer porta feugiat tincidunt. </Text>
-                <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5}}>
+                <Hr color={PRIMARY_NORMAL} width={3} style={{marginHorizontal: 5, marginBottom:5}}>
                     <Text style={{fontSize:20,paddingHorizontal:6, fontFamily:PRIMARY_FONT, color:PRIMARY_NORMAL_FONT_COLOR}}>A Equipe</Text>
                 </Hr>
                 <PersonalCard name={'Donald J Westbrooks'} description={'Curabitur faucibus vestibulum neque quis molestie. Morbi porttitor sollicitudin mi vel rutrum. Fusce condimentum efficitur velit, sed laoreet eros egestas quis.'}

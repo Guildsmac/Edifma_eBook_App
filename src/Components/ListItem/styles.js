@@ -11,6 +11,9 @@ export default StyleSheet.create({
         flexDirection:'row',
 
     },
+    notAvailable:{
+        opacity:0.5
+    },
 
     imageView:{
         flex:3
@@ -71,6 +74,7 @@ export default StyleSheet.create({
         fontFamily: PRIMARY_FONT,
         textAlign: 'left',
 
+
     },
     titleText:{
         fontSize: 22,
@@ -86,7 +90,10 @@ export default StyleSheet.create({
     },
     imageIcon:{
         height: '100%',
-        width:'100%'
+        width:'100%',
+        borderRadius:8,
+        borderColor: PRIMARY_NORMAL,
+        borderWidth:0.3,
     },
     mainImage:{
         padding:6,

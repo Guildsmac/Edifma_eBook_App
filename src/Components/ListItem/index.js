@@ -7,9 +7,31 @@ import {PRIMARY_BACKGROUND, PRIMARY_NORMAL} from "../../Consts/Colors";
 
 class ListItem extends Component{
 
+    constructor(props){
+        super(props);
+    }
+
     _downloadClick = () => {
         this.props.fetchProtectedEbook(this.props.idusuario, this.props.id, true);
 
+    };
+
+    _getAvailability = (originalStyles, customs) => {
+        if(this.props.isAvailable)
+            return [originalStyles, customs];
+        return [originalStyles, styles.notAvailable, customs];
+    };
+
+    _getButtonText = () =>{
+        if(this.props.isAvailable)
+            return "FAZER DOWNLOAD";
+        return "LIVRO INDISPONÍVEL";
+    };
+
+    _getButtonLink = () =>{
+        if(this.props.isAvailable)
+            return this._downloadClick;
+        return () => {alert('Livro indisponível. Por favor, entrar em contato com a instituição para liberação.')};
     };
 
     render() {
@@ -24,29 +46,29 @@ class ListItem extends Component{
 
         return(
             <View style={styles.container}>
-                <View style={styles.imageView}>
-                    <Image style={styles.imageIcon} source={_imageUrl}/>
+                <View style={this._getAvailability(styles.imageView, {})}>
+                    <Image style={this._getAvailability(styles.imageIcon, {})} source={_imageUrl}/>
                 </View>
                 <View style={styles.contentView}>
                     <View style={styles.infoView}>
-                        <View style={[styles.mainText, {flex:2}]}>
-                            <Text style={[styles.text, styles.titleText]} numberOfLines={1}>
+                        <View style={this._getAvailability(styles.mainText, {flex:2})}>
+                            <Text style={this._getAvailability([styles.text, styles.titleText], {})} numberOfLines={1}>
                                 {this.props.title}
                             </Text>
-                            <Text style={[styles.text, styles.authorText]} numberOfLines={1}>
+                            <Text style={this._getAvailability([styles.text, styles.authorText], {})} numberOfLines={1}>
                                 Por {this.props.author}
                             </Text>
                         </View>
                         <View style={{flex:3}}>
-                            <Text style={[styles.text, styles.descriptionText]} numberOfLines={4}>
+                            <Text style={this._getAvailability([styles.text, styles.descriptionText], {})} numberOfLines={4}>
                                 {this.props.description}
                             </Text>
                         </View>
                     </View>
                     <View style={styles.actionView}>
-                        <TouchableNativeFeedback onPress={this._downloadClick} background={TouchableNativeFeedback.SelectableBackground()}>
+                        <TouchableNativeFeedback onPress={this._getButtonLink()} background={TouchableNativeFeedback.SelectableBackground()}>
                             <View style={styles.downloadButton}>
-                                <Text style={[styles.text, {color:PRIMARY_BACKGROUND}]}>FAZER DOWNLOAD</Text>
+                                <Text style={[styles.text, {color:PRIMARY_BACKGROUND}]}>{this._getButtonText()}</Text>
                             </View>
                         </TouchableNativeFeedback>
                         {/*<TouchableNativeFeedback background={TouchableNativeFeedback.SelectableBackground()}>
@@ -57,37 +79,6 @@ class ListItem extends Component{
                     </View>
                 </View>
             </View>
-
-            /*<View style={styles.container}>
-                <TouchableOpacity style={{flex:1}}>
-                    <View style={styles.topLeftArea}>
-                        <View style={styles.mainImage}>
-                            <Image style={styles.imageIcon} source={_imageUrl}/>
-                        </View>
-                        <View style={styles.mainText}>
-                            <Text style={[styles.text, styles.titleText]} numberOfLines={1}>
-                                {this.props.title}
-                            </Text>
-                            <Text style={[styles.text, styles.authorText]} numberOfLines={1}>
-                                Por {this.props.author}
-                            </Text>
-                        </View>
-                    </View>
-                    <View style={styles.bottomLeftArea}>
-                        <Text style={[styles.text, styles.descriptionText]} numberOfLines={3}>
-                            {this.props.description}
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.rightArea}>
-                    <TouchableOpacity onPress={this._downloadClick}>
-                        <Image style={styles.imageIcon} source={require('../../Images/download-book.png')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image style={styles.imageIcon} source={require('../../Images/open-book.png')}/>
-                    </TouchableOpacity>
-                </View>
-            </View>*/
          )
     }
 }

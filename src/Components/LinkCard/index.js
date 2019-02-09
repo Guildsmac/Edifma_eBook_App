@@ -25,7 +25,6 @@ class LinkCard extends Component{
         };
 
         const textStyle = {
-            textAlign: this.props.isSecondary ? 'right' : 'left',
             color: this.props.isSecondary ? PRIMARY_NORMAL : PRIMARY_BACKGROUND,
 
         };

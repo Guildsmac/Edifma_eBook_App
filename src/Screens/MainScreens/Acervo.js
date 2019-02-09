@@ -30,7 +30,6 @@ class Acervo extends Component{
     };
 
     getScreenState = () => {
-        console.log(this.props.data);
         if(this.props.data.length === 0 || !this.props.data){
             return(
                 <View style={{alignItems: 'center', justifyContent: 'center', flex:1}}>

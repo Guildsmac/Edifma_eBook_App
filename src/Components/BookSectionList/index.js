@@ -51,6 +51,7 @@ class BookSelectionList extends Component{
                         title = {item.titulo}
                         author = {item.autor}
                         description = {item.descricao}
+                        isAvailable = {item.isAvailable}
                     />
                 }
                 renderSectionHeader={({section: {title}}) => (

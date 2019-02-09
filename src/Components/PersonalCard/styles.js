@@ -1,15 +1,13 @@
 import {StyleSheet} from 'react-native'
 import {PRIMARY_BACKGROUND, PRIMARY_DARK, PRIMARY_NORMAL, SECONDARY_DARK, SECONDARY_NORMAL} from "../../Consts/Colors";
-import {PRIMARY_FONT} from "../../Consts/Fonts";
+import {PRIMARY_FONT, PRIMARY_FONT_BLACK} from "../../Consts/Fonts";
 export default StyleSheet.create({
     container:{
-        width:'90%',
+        width:'100%',
         alignItems:'center',
         justifyContent:'center',
-        height:150,
-        marginLeft:28,
-        marginTop:4,
-        marginBottom:20,
+        marginBottom:10,
+
 
     },
     redDotImage:{
@@ -21,12 +19,14 @@ export default StyleSheet.create({
         opacity:0.7
     },
     bigText:{
-        fontFamily:PRIMARY_FONT,
-        fontSize:24,
+        fontFamily:PRIMARY_FONT_BLACK,
+        marginLeft:4,
+        fontSize:26,
     },
     normalText:{
         fontFamily:PRIMARY_FONT,
-        fontSize:18
+        fontSize:20,
+        marginBottom: 10,
     },
     cardImage:{
         position:'absolute',
@@ -54,15 +54,12 @@ export default StyleSheet.create({
         borderWidth:0.5,
         borderColor:PRIMARY_NORMAL,
         borderTopWidth:0,
-        borderLeftWidth:3,
-        borderRightWidth:0,
         borderBottomWidth:1,
-        borderBottomLeftRadius:10,
-        borderBottomRightRadius:10,
-        borderTopRightRadius:9,
-        borderTopLeftRadius:9,
+        borderBottomLeftRadius:6,
+        borderBottomRightRadius:6,
+        borderTopRightRadius:5,
+        borderTopLeftRadius:5,
         elevation:1,
-        paddingLeft:90,
-        paddingTop:4,
+        paddingLeft:5,
     }
 })
