@@ -9,6 +9,7 @@ import {handleConnectivityChange} from "../../Actions/authActions";
 class NoInternet extends Component{
 
     getConnection = () => {
+
         if(this.isConnected)
             return (<NoInternet isConnected={true}/>);
         else
@@ -54,8 +55,10 @@ class NoInternet extends Component{
 
 }
 
-const mapStateToProps = state =>({
-    isConnectedToInternet: state.authReducers.isConnectedToInternet
-});
+const mapStateToProps = state => {
+    if(state.authReducers.INITIAL_STATE)
+        return {isConnectedToInternet: state.authReducers.INITIAL_STATE.isConnectedToInternet};
+    return {isConnectedToInternet: state.authReducers.isConnectedToInternet};
+};
 
 export default connect(mapStateToProps, {handleConnectivityChange})(NoInternet)

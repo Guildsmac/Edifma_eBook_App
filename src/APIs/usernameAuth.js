@@ -10,14 +10,13 @@ const usernameAuth = (username) => {
     return dispatch => {
 
         dispatch({type: ACTIVITY_INDICATOR_ON});
-
         axios.post(CHECK_USERNAME_REQUEST, {
             username
-        }).then(response => {
-            checkUsernameSuccess(response, dispatch)
+        }, {timeout:100}).then(response => {
+            checkUsernameSuccess(response, dispatch);
         }).catch(error => {
-            checkUsernameError(error, dispatch)
-        }, 200);
+            checkUsernameError(error, dispatch);
+        });
 
     }
 };

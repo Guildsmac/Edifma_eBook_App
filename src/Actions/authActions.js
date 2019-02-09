@@ -64,8 +64,9 @@ const switchKeyboard = () => {
 };
 
 const registerUserError = (error, dispatch) => {
-    let errors = error.response.data.message;
+    let errors = error.response ? error.response.data.message : undefined;
     console.log(errors);
+    console.log(error.response);
     if(errors){
         if(errors.cpf)
             dispatch({type:SET_CPF_ERROR, payload:{text:errors.cpf}});
@@ -75,9 +76,10 @@ const registerUserError = (error, dispatch) => {
             dispatch({type:SET_USERNAME_ERROR, payload:{text:errors.username}});
 
         alert(errors.main);
-    }else{
+    }else if(!error.response){
         alert('Erro de conexão');
-    }
+    }else
+        alert('Erro de conexão');
     dispatch({
         type:REGISTER_USER_ERROR,
     })
@@ -160,11 +162,16 @@ const authUserSuccess = (response, dispatch) => {
 };
 
 const authUserError = (error, dispatch) => {
+    let erroSenha;
+    if(error.response)
+        erroSenha = error.response.data.message;
+    else
+        erroSenha = 'Erro de Conexão.';
 
     dispatch({
         type: USER_LOGIN_ERROR,
         payload: {
-            erroSenha: error.response.data.message
+            erroSenha
         }
 
     });
@@ -214,7 +221,11 @@ const checkUsernameSuccess = (response, dispatch) => {
 };
 
 const checkUsernameError = (error, dispatch) => {
-    const errorMessage = error.response.data.message ? error.response.data.message : "Erro de conexão";
+    let errorMessage;
+    if(error.response)
+        errorMessage = error.response.data.message ? error.response.data.message : "Erro de conexão";
+    else
+        errorMessage = "Erro de Conexão.";
     dispatch({
         type: USERNAME_CHECK_ERROR,
         payload: {

@@ -15,9 +15,8 @@ const userAuth = (username, password) => {
         }).then(response => {
             authUserSuccess(response, dispatch)
         }).catch(error => {
-            console.log(error.response);
             authUserError(error, dispatch)
-        }, 200);
+        });
 
     }
 };

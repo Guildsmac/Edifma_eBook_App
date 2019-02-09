@@ -20,6 +20,8 @@ const fetchProtectedEbookSuccess = (response, dispatch, download) => {
 };
 
 const fetchProtectedEbookError = (response, dispatch) => {
+    if(!response.response)
+        alert('Erro de conexão');
     dispatch({type: FETCH_PROTECTED_EBOOK_ERROR, payload:{response}});
 };
 
@@ -28,6 +30,9 @@ const fetchEbooksSuccess = (response, dispatch) => {
 };
 
 const fetchEbooksError = (error, dispatch) => {
+    if(!error.response)
+        alert('Erro de conexão');
+
     dispatch({type: FETCH_EBOOKS_ERROR, payload:{error}});
 };
 

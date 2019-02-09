@@ -15,7 +15,7 @@ const createUser = (data) => {
             email: data.email,
             cpf: data.cpf,
             password: data.senha
-        }).then(response => {
+        }, {timeout:1000}).then(response => {
             registerUserSucess(response, dispatch)
         }).catch(error => {
             registerUserError(error, dispatch)

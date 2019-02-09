@@ -15,7 +15,8 @@ const getProtectedEbook = (usuario_idusuario, e_book_ide_book, download) => {
         }).then(response => {
             fetchProtectedEbookSuccess(response, dispatch, download);
         }).catch(error => {
-            alert(error.response.data.message);
+            if(error.response)
+                alert(error.response.data.message);
             fetchProtectedEbookError(error, dispatch);
         }, 200)
     }
