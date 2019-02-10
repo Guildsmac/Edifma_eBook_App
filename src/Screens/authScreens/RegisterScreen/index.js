@@ -16,6 +16,7 @@ import {
 } from "../../../Actions/authActions";
 import createUser from "../../../APIs/createUser";
 import {PRIMARY_DARK} from "../../../Consts/Colors";
+import FloatingInput from "../../../Components/FloatingInput";
 
 
 class RegisterScreen extends Component {
@@ -105,33 +106,64 @@ class RegisterScreen extends Component {
             <KeyboardAvoidingView enabled={false} style={inheritedStyle.container}>
                 <Animated.View style={[animation, pageStyles.mainContent, ]}>
                     <View style={{flex: 14, justifyContent: 'space-between', marginTop:12, marginBottom:36 }}>
-                    <View>
-                        <RegisterField text='Nome' focusAction={() => {
+                    <View style={{width:350}}>
+                        <FloatingInput
+                            label="Nome"
+                            value={this.props.nome}
+                            onChangeText = {(text) => this.props.changeName(text)}
+
+                        />
+                        {/*<RegisterField text='Nome' focusAction={() => {
                         }} value={this.props.nome} changeTextAction={this.props.changeName}
-                                       placeholder='Insira seu nome aqui'/>
+                                       placeholder='Insira seu nome aqui'/>*/}
                         <Text></Text>
                     </View>
                     <View>
-                        <RegisterField text='Usuário' value={this.props.username}
+                        <FloatingInput
+                            label="Usuário"
+                            value={this.props.username}
+                            onChangeText = {(text) => this.props.changeUsername(text)}
+                            onFocus = {() => {this.props.clearUsuarioErro()}}
+                        />
+                        {/*<RegisterField text='Usuário' value={this.props.username}
                                        changeTextAction={this.props.changeUsername}
                                        placeholder='Insira seu nome de usuário aqui'
-                                       focusAction={this.props.clearUsuarioErro}/>
+                                       focusAction={this.props.clearUsuarioErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroUsuario}</Text>
                     </View>
                     <View>
-                        <RegisterField text='Email' value={this.props.email} changeTextAction={this.props.changeEmail}
-                                       placeholder='Insira seu email aqui' focusAction={this.props.clearEmailErro}/>
+                        <FloatingInput
+                            label="Email"
+                            value={this.props.email}
+                            onChangeText = {(text) => this.props.changeEmail(text)}
+                            onFocus = {() => {this.props.clearEmailErro()}}
+                        />
+                        {/*<RegisterField text='Email' value={this.props.email} changeTextAction={this.props.changeEmail}
+                                       placeholder='Insira seu email aqui' focusAction={this.props.clearEmailErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroEmail}</Text>
                     </View>
                     <View>
-                        <RegisterField text='CPF' value={this.props.cpf} changeTextAction={this.props.changeCpf}
-                                       placeholder='Insira seu CPF aqui' focusAction={this.props.clearCpfErro}/>
+                        <FloatingInput
+                            label="CPF"
+                            value={this.props.cpf}
+                            onChangeText = {(text) => this.props.changeCpf(text)}
+                            onFocus={() => {this.props.clearCpfErro()}}
+                        />
+                        {/*<RegisterField text='CPF' value={this.props.cpf} changeTextAction={this.props.changeCpf}
+                                       placeholder='Insira seu CPF aqui' focusAction={this.props.clearCpfErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroCpf}</Text>
                     </View>
                     <View>
-                        <RegisterField text='Senha' value={this.props.senha}
+                        <FloatingInput
+                            label="Senha"
+                            secureTextEntry
+                            value={this.props.senha}
+                            onChangeText = {(text) => this.props.changePassword(text)}
+                            onFocus={() => {this.props.clearCpfErro()}}
+                        />
+                        {/*<RegisterField text='Senha' value={this.props.senha}
                                        changeTextAction={this.props.changePassword} placeholder='Insira sua senha aqui'
-                                       password={true} focusAction={this.props.clearCpfErro}/>
+                                       password={true} focusAction={this.props.clearCpfErro}/>*/}
                         <Text></Text>
                     </View>
                     </View>

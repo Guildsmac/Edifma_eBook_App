@@ -11,7 +11,7 @@ class FloatingInput extends Component{
         this.state = {
             isFocused: false
         };
-        this._animatedIsFocused = new Animated.Value(0)
+        this._animatedIsFocused = new Animated.Value(0);
     }
 
     _shouldFloat(){
@@ -36,7 +36,19 @@ class FloatingInput extends Component{
 
     }
 
-    handleFocus = () => this.setState({isFocused: true});
+    componentDidMount(){
+        Animated.timing(this._animatedIsFocused, {
+            toValue: (this._shouldFloat()) ? 1 : 0,
+            duration:200,
+        }).start();
+    }
+
+    handleFocus = () => {
+        if(this.props.onFocus)
+            this.props.onFocus();
+
+        this.setState({isFocused: true})
+    };
     handleBlur = () => this.setState({isFocused: false});
 
     render() {
@@ -73,7 +85,6 @@ class FloatingInput extends Component{
         };
 
         const {label, ...props} = this.props;
-
         return(
             <Animated.View style={[styles.container, animatedBorderStyle]}>
                 <Animated.Text style={labelStyle}>
