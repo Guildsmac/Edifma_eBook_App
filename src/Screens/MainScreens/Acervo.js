@@ -30,7 +30,7 @@ class Acervo extends Component{
     };
 
     getScreenState = () => {
-        if(this.props.data.length === 0 || !this.props.data){
+        if((this.props.data.length === 0 || !this.props.data) && !this.props.isRefreshing){
             return(
                 <View style={{alignItems: 'center', justifyContent: 'center', flex:1}}>
                     <ActivityIndicator size='large' color={PRIMARY_DARK}/>
@@ -51,8 +51,9 @@ class Acervo extends Component{
 const mapStateToProps = (state) => {
     return{
         idUsuario: state.authReducers.idusuario,
-        data: state.mainReducers.data
+        data: state.mainReducers.data,
+        isRefreshing: state.mainReducers.isRefreshing
     }
-}
+};
 
 export default connect(mapStateToProps, {fetchEbooks})(Acervo)

@@ -25,7 +25,7 @@ const INITIAL_STATE = {
     username: '',
     email: '',
     cpf: '',
-    idusuario: '',
+    idusuario: '1',
     senha: '',
     erroLogin: '',
     erroSenha: '',

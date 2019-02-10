@@ -4,7 +4,7 @@ import {
     fetchEbooksSuccess,
     fetchEbooksError,
 } from "../Actions/mainActions";
-import {ACTIVITY_INDICATOR_ON} from "../Actions/actionsTypes";
+import {ACTIVITY_INDICATOR_ON, SWITCH_REFRESHING} from "../Actions/actionsTypes";
 
 const getEbooks = (idusuario) => {
     return dispatch => {
@@ -18,6 +18,7 @@ const getEbooks = (idusuario) => {
                 idusuario: idusuario
             }
         }).then(response => {
+            dispatch({type: SWITCH_REFRESHING});
             fetchEbooksSuccess(response, dispatch);
         }).catch(error => {
             fetchEbooksError(error, dispatch);

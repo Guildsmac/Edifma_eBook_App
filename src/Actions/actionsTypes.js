@@ -33,8 +33,12 @@ const CHANGE_SCROLL_POSITION = 'change_scroll_position';
 const ASSIGN_SCROLLER = 'assign_scroller';
 const CONNECT_TO_INTERNET = 'connected_to_internet';
 const DISCONNECT_FROM_INTERNET = 'disconnected_from_internet';
+const REFRESH_EBOOKS = 'refresh_ebooks';
+const SWITCH_REFRESHING = 'switch_refreshing';
 
 export {
+    REFRESH_EBOOKS,
+    SWITCH_REFRESHING,
     CONNECT_TO_INTERNET,
     DISCONNECT_FROM_INTERNET,
     DOWNLOAD_EBOOK,
