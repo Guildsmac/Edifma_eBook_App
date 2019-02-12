@@ -106,7 +106,7 @@ class RegisterScreen extends Component {
             <KeyboardAvoidingView enabled={false} style={inheritedStyle.container}>
                 <Animated.View style={[animation, pageStyles.mainContent, ]}>
                     <View style={{flex: 14, justifyContent: 'space-between', marginTop:12, marginBottom:36 }}>
-                    <View style={{width:350}}>
+                    <View style={{flex: 1, width:350}}>
                         <FloatingInput
                             label="Nome"
                             value={this.props.nome}
@@ -118,7 +118,7 @@ class RegisterScreen extends Component {
                                        placeholder='Insira seu nome aqui'/>*/}
                         <Text></Text>
                     </View>
-                    <View>
+                    <View style={{flex:1}}>
                         <FloatingInput
                             label="Usuário"
                             value={this.props.username}
@@ -131,7 +131,7 @@ class RegisterScreen extends Component {
                                        focusAction={this.props.clearUsuarioErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroUsuario}</Text>
                     </View>
-                    <View>
+                    <View style={{flex:1}}>
                         <FloatingInput
                             label="Email"
                             value={this.props.email}
@@ -142,7 +142,7 @@ class RegisterScreen extends Component {
                                        placeholder='Insira seu email aqui' focusAction={this.props.clearEmailErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroEmail}</Text>
                     </View>
-                    <View>
+                    <View style={{flex:1}}>
                         <FloatingInput
                             label="CPF"
                             value={this.props.cpf}
@@ -153,7 +153,7 @@ class RegisterScreen extends Component {
                                        placeholder='Insira seu CPF aqui' focusAction={this.props.clearCpfErro}/>*/}
                         <Text style={pageStyles.textError}>{this.props.erroCpf}</Text>
                     </View>
-                    <View>
+                    <View style={{flex:1}}>
                         <FloatingInput
                             label="Senha"
                             secureTextEntry

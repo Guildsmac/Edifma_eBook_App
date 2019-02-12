@@ -16,9 +16,9 @@ export default class Routes extends Component{
         return(
             <Router>
                 <Stack key = 'login' hideNavBar>
-                    <Scene key = 'loginScreen' component = {LoginScreen}  title="Login"/>
+                    <Scene key = 'loginScreen' component = {LoginScreen} initial title="Login"/>
                     <Scene key = 'registerScreen' component = {RegisterScreen} title="Register"/>
-                    <Scene key = 'dashboard' component = {Dashboard} initial title="Dashboard"/>
+                    <Scene key = 'dashboard' component = {Dashboard}  title="Dashboard"/>
                     <Scene key = 'acervo' component = {Acervo} title = "Acervo"/>
                     <Scene key = 'about' component = {About} title = "Sobre"/>
                     <Scene key = 'links' component = {Links} title = "Links"/>

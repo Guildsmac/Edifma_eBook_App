@@ -1,12 +1,5 @@
 import thisStyle from "../../Screens/authScreens/styles";
-import {
-    Animated,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    BackHandler, ActivityIndicator, KeyboardAvoidingView
-} from "react-native";
+import {ActivityIndicator, Animated, BackHandler, Text, TouchableOpacity, View} from "react-native";
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {changePassword, cleanAll} from "../../Actions/authActions";
@@ -43,20 +36,20 @@ class LoginSecondStep extends Component {
         if (this.props.isActivityIndicatorOn)
             return <ActivityIndicator size="large" color={PRIMARY_DARK}/>;
         else
-            return (<View style={{flexDirection: 'row'}}>
+            return (<View style={{flexDirection: 'row', alignItems:'center',justifyContent: 'space-evenly'}}>
 
 
-                        <TouchableOpacity onPress={this.props.actionBack} style={[thisStyle.backButton, {flex:1.25}]}>
-                            <View >
-                                <Text style={thisStyle.secondaryText}>Voltar</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={this.props.action} style={[thisStyle.button, {flex:2, marginLeft:8}]}>
-                            <View>
-                                <Text style={thisStyle.primaryText}>Prosseguir</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>)
+                <TouchableOpacity onPress={this.props.actionBack} style={[thisStyle.secondaryButton, {flex: 1.25}]}>
+                    <View>
+                        <Text style={thisStyle.secondaryText}>Voltar</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.props.action} style={[thisStyle.button, {flex: 2, marginLeft: 8}]}>
+                    <View>
+                        <Text style={thisStyle.primaryText}>Prosseguir</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>)
 
     }
 
@@ -78,25 +71,27 @@ class LoginSecondStep extends Component {
 
         return (
             <Animated.View style={[animation, {width: '100%', flex: 1}]}>
-                <View style={{justifyContent: 'space-between', flex: 6, paddingVertical: 80}}>
-                    <View style={{justifyContent: 'space-between'}}>
+                <View style={{justifyContent: 'space-between', flex: 6}}>
+                    <View style={{justifyContent: 'center', flex: 2}}>
                         <Text
                             style={[thisStyle.bigText, {marginBottom: 12}]}>Olá, {this.props.nome.split(' ')[0]}
                         </Text>
                         <FloatingInput
                             label="Senha"
                             value={this.props.senha}
-                            onChangeText = {(text) => this.props.changePassword(text)}
+                            onChangeText={(text) => this.props.changePassword(text)}
                             secureTextEntry
                         />
                     </View>
-                    <KeyboardAvoidingView enabled={false}>
-                        <Text style={thisStyle.textErrorBig}>{this.props.erroSenha}</Text>
-                        {this.getStatus()}
-                    </KeyboardAvoidingView>
-
+                    <View style={{flex: 1}}>
+                        <View style={{flex: 1, justifyContent: 'center'}}>
+                            <Text style={thisStyle.textErrorBig}>{this.props.erroSenha}</Text>
+                        </View>
+                        <View style={{flex: 3}}>
+                            {this.getStatus()}
+                        </View>
+                    </View>
                 </View>
-
             </Animated.View>
         )
     }
